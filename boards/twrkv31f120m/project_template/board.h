@@ -75,6 +75,20 @@
 #define SDCARD_SPI_HW_BASEADDR SPI1
 #define SDCARD_CD_GPIO_IRQ_HANDLER PORTC_IRQHandler
 
+/*! @brief Define the port interrupt number for the board switches */
+#ifndef BOARD_SW1_GPIO
+#define BOARD_SW1_GPIO GPIOC
+#endif
+#ifndef BOARD_SW1_PORT
+#define BOARD_SW1_PORT PORTC
+#endif
+#ifndef BOARD_SW1_GPIO_PIN
+#define BOARD_SW1_GPIO_PIN 6U
+#endif
+#define BOARD_SW1_IRQ PORTC_IRQn
+#define BOARD_SW1_IRQ_HANDLER PORTC_IRQHandler
+#define BOARD_SW1_NAME "SW1"
+
 /* Board led color mapping */
 #define LOGIC_LED_ON 0U
 #define LOGIC_LED_OFF 1U

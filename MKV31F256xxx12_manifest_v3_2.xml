@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.2.xsd" format_version="3.2" api_version="2.0.0" name="SDK version 2.3.0 package for MKV31F256xxx12 device" brief="This is SDK version 2.3.0 manifest file. It describes the content of the SDK version 2.3.0 package for MKV31F256xxx12 device and additional settings for tools that support SDK version 2.3.0" id="SDK_2.x_MKV31F256xxx12" configuration="49b5609793885163fab1baa3b138bd13">
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.2.xsd" format_version="3.2" api_version="2.0.0" name="SDK version 2.4.0 package for MKV31F256xxx12 device" brief="This is SDK version 2.4.0 manifest file. It describes the content of the SDK version 2.4.0 package for MKV31F256xxx12 device and additional settings for tools that support SDK version 2.4.0" id="SDK_2.x_MKV31F256xxx12" configuration="99d3807f48e80e679abc6efea919a812">
   <defines>
     <define name="CPU_$|package|" value=""/>
     <define name="CPU_$|package|_$|core|" value=""/>
   </defines>
   <externalDefinitions>
     <definition extID="hvpkv31f120m"/>
+    <definition extID="middleware.freertos"/>
   </externalDefinitions>
-  <ksdk id="KSDK230" name="KSDK230" version="2.3.0"/>
+  <ksdk id="KSDK240" name="KSDK240" version="2.4.0"/>
   <compilers>
     <compiler id="compiler_gcc" type="gcc" name="gcc"/>
   </compilers>
@@ -22,11 +23,6 @@
       <option id="gnu.cpp.link.option.nostdlibs" type="boolean" user_name="" variants="">
         <value>true</value>
       </option>
-      <option id="gnu.cpp.link.option.other" type="stringList" user_name="" variants="">
-        <value>-Map="${BuildArtifactFileBaseName}.map"</value>
-        <value>--gc-sections</value>
-        <value>-print-memory-usage</value>
-      </option>
       <option id="com.crt.advproject.link.cpp.flashconfigenable" type="boolean" user_name="" variants="">
         <value>true</value>
       </option>
@@ -36,15 +32,10 @@
       <option id="gnu.c.link.option.nostdlibs" type="boolean" user_name="" variants="">
         <value>true</value>
       </option>
-      <option id="gnu.c.link.option.other" type="stringList" user_name="" variants="">
-        <value>-Map="${BuildArtifactFileBaseName}.map"</value>
-        <value>--gc-sections</value>
-        <value>-print-memory-usage</value>
-      </option>
     </toolchainSetting>
   </toolchainSettings>
   <toolchains>
-    <toolchain id="mcuxpresso" name="MCUXpresso_IDE" full_name="MCUXpresso IDE" type="mcuxpresso" compiler="compiler_gcc" version="10.0" vendor="NXP Semiconductors" vendor_url="http://www.nxp.com">
+    <toolchain id="mcuxpresso" name="MCUXpresso_IDE" full_name="MCUXpresso IDE" type="mcuxpresso" compiler="compiler_gcc" version="10.2.0" vendor="NXP Semiconductors" vendor_url="http://www.nxp.com">
       <debug>
         <debug_configuration id="com.crt.advproject.config.exe.debug" name="Debug Configuration" probe="LinkServer">
           <scripts>
@@ -127,11 +118,6 @@ The TWR-KV31F120M is supported by a range of NXP® and third-party development s
             <files mask="cmsis_dspi_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_dspi_edma_transfer" name="cmsis_dspi_edma_transfer" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_transfer" toolchain="mcuxpresso">
-          <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_transfer" type="xml">
-            <files mask="cmsis_dspi_edma_transfer.xml"/>
-          </external>
-        </example>
         <example id="twrkv31f120m_cmsis_dspi_int_b2b_transfer_master" name="cmsis_dspi_int_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/master" toolchain="mcuxpresso">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/master" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_master.xml"/>
@@ -140,11 +126,6 @@ The TWR-KV31F120M is supported by a range of NXP® and third-party development s
         <example id="twrkv31f120m_cmsis_dspi_int_b2b_transfer_slave" name="cmsis_dspi_int_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/slave" toolchain="mcuxpresso">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/slave" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_slave.xml"/>
-          </external>
-        </example>
-        <example id="twrkv31f120m_cmsis_dspi_interrupt_transfer" name="cmsis_dspi_interrupt_transfer" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/interrupt_transfer" toolchain="mcuxpresso">
-          <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/interrupt_transfer" type="xml">
-            <files mask="cmsis_dspi_interrupt_transfer.xml"/>
           </external>
         </example>
         <example id="twrkv31f120m_cmsis_i2c_edma_b2b_transfer_master" name="cmsis_i2c_edma_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/master" toolchain="mcuxpresso">
@@ -202,6 +183,11 @@ The TWR-KV31F120M is supported by a range of NXP® and third-party development s
             <files mask="adc16_low_power_async_edma.xml"/>
           </external>
         </example>
+        <example id="twrkv31f120m_adc16_low_power_peripheral" name="adc16_low_power_peripheral" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power_peripheral" toolchain="mcuxpresso">
+          <external path="boards/twrkv31f120m/demo_apps/adc16_low_power_peripheral" type="xml">
+            <files mask="adc16_low_power_peripheral.xml"/>
+          </external>
+        </example>
         <example id="twrkv31f120m_adc16_potentiometer" name="adc16_potentiometer" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_potentiometer" toolchain="mcuxpresso">
           <external path="boards/twrkv31f120m/demo_apps/adc16_potentiometer" type="xml">
             <files mask="adc16_potentiometer.xml"/>
@@ -220,6 +206,11 @@ The TWR-KV31F120M is supported by a range of NXP® and third-party development s
         <example id="twrkv31f120m_hello_world" name="hello_world" category="demo_apps" path="boards/twrkv31f120m/demo_apps/hello_world" toolchain="mcuxpresso">
           <external path="boards/twrkv31f120m/demo_apps/hello_world" type="xml">
             <files mask="hello_world.xml"/>
+          </external>
+        </example>
+        <example id="twrkv31f120m_led_blinky" name="led_blinky" category="demo_apps" path="boards/twrkv31f120m/demo_apps/led_blinky" toolchain="mcuxpresso">
+          <external path="boards/twrkv31f120m/demo_apps/led_blinky" type="xml">
+            <files mask="led_blinky.xml"/>
           </external>
         </example>
         <example id="twrkv31f120m_power_manager" name="power_manager" category="demo_apps" path="boards/twrkv31f120m/demo_apps/power_manager" toolchain="mcuxpresso">
@@ -542,16 +533,6 @@ The TWR-KV31F120M is supported by a range of NXP® and third-party development s
             <files mask="rnga_random.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_sdspi" name="sdspi" category="driver_examples" path="boards/twrkv31f120m/driver_examples/sdspi" toolchain="mcuxpresso">
-          <external path="boards/twrkv31f120m/driver_examples/sdspi" type="xml">
-            <files mask="sdspi.xml"/>
-          </external>
-        </example>
-        <example id="twrkv31f120m_sdspi_fatfs" name="sdspi_fatfs" category="driver_examples" path="boards/twrkv31f120m/driver_examples/sdspi_fatfs" toolchain="mcuxpresso">
-          <external path="boards/twrkv31f120m/driver_examples/sdspi_fatfs" type="xml">
-            <files mask="sdspi_fatfs.xml"/>
-          </external>
-        </example>
         <example id="twrkv31f120m_uart_edma_transfer" name="uart_edma_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/edma_transfer" toolchain="mcuxpresso">
           <external path="boards/twrkv31f120m/driver_examples/uart/edma_transfer" type="xml">
             <files mask="uart_edma_transfer.xml"/>
@@ -615,11 +596,6 @@ The FRDM-KV31F is the first device in the Kinetis V portfolio to be enabled with
             <files mask="cmsis_dspi_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_dspi_edma_transfer" name="cmsis_dspi_edma_transfer" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_transfer" toolchain="mcuxpresso">
-          <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_transfer" type="xml">
-            <files mask="cmsis_dspi_edma_transfer.xml"/>
-          </external>
-        </example>
         <example id="frdmkv31f_cmsis_dspi_int_b2b_transfer_master" name="cmsis_dspi_int_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/master" toolchain="mcuxpresso">
           <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/master" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_master.xml"/>
@@ -628,11 +604,6 @@ The FRDM-KV31F is the first device in the Kinetis V portfolio to be enabled with
         <example id="frdmkv31f_cmsis_dspi_int_b2b_transfer_slave" name="cmsis_dspi_int_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/slave" toolchain="mcuxpresso">
           <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/slave" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_slave.xml"/>
-          </external>
-        </example>
-        <example id="frdmkv31f_cmsis_dspi_interrupt_transfer" name="cmsis_dspi_interrupt_transfer" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/interrupt_transfer" toolchain="mcuxpresso">
-          <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/interrupt_transfer" type="xml">
-            <files mask="cmsis_dspi_interrupt_transfer.xml"/>
           </external>
         </example>
         <example id="frdmkv31f_cmsis_i2c_edma_b2b_transfer_master" name="cmsis_i2c_edma_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/master" toolchain="mcuxpresso">
@@ -690,9 +661,19 @@ The FRDM-KV31F is the first device in the Kinetis V portfolio to be enabled with
             <files mask="adc16_low_power_async_edma.xml"/>
           </external>
         </example>
+        <example id="frdmkv31f_adc16_low_power_peripheral" name="adc16_low_power_peripheral" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power_peripheral" toolchain="mcuxpresso">
+          <external path="boards/frdmkv31f/demo_apps/adc16_low_power_peripheral" type="xml">
+            <files mask="adc16_low_power_peripheral.xml"/>
+          </external>
+        </example>
         <example id="frdmkv31f_bubble" name="bubble" category="demo_apps" path="boards/frdmkv31f/demo_apps/bubble" toolchain="mcuxpresso">
           <external path="boards/frdmkv31f/demo_apps/bubble" type="xml">
             <files mask="bubble.xml"/>
+          </external>
+        </example>
+        <example id="frdmkv31f_bubble_peripheral" name="bubble_peripheral" category="demo_apps" path="boards/frdmkv31f/demo_apps/bubble_peripheral" toolchain="mcuxpresso">
+          <external path="boards/frdmkv31f/demo_apps/bubble_peripheral" type="xml">
+            <files mask="bubble_peripheral.xml"/>
           </external>
         </example>
         <example id="frdmkv31f_dac_adc" name="dac_adc" category="demo_apps" path="boards/frdmkv31f/demo_apps/dac_adc" toolchain="mcuxpresso">
@@ -713,6 +694,11 @@ The FRDM-KV31F is the first device in the Kinetis V portfolio to be enabled with
         <example id="frdmkv31f_hello_world" name="hello_world" category="demo_apps" path="boards/frdmkv31f/demo_apps/hello_world" toolchain="mcuxpresso">
           <external path="boards/frdmkv31f/demo_apps/hello_world" type="xml">
             <files mask="hello_world.xml"/>
+          </external>
+        </example>
+        <example id="frdmkv31f_led_blinky" name="led_blinky" category="demo_apps" path="boards/frdmkv31f/demo_apps/led_blinky" toolchain="mcuxpresso">
+          <external path="boards/frdmkv31f/demo_apps/led_blinky" type="xml">
+            <files mask="led_blinky.xml"/>
           </external>
         </example>
         <example id="frdmkv31f_power_manager" name="power_manager" category="demo_apps" path="boards/frdmkv31f/demo_apps/power_manager" toolchain="mcuxpresso">
@@ -1210,19 +1196,19 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
     </device>
   </devices>
   <components>
-    <component id="platform.drivers.adc16.MKV31F51212" name="adc" full_name="ADC16 Driver" type="driver" brief="ADC16 Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_adc16.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_adc16.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.adc16.MKV31F25612" name="adc" full_name="ADC16 Driver" type="driver" brief="ADC16 Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_adc16.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_adc16.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.adc16.MKV31F51212" name="adc" full_name="ADC16 Driver" type="driver" brief="ADC16 Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_adc16.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_adc16.h"/>
       </source>
     </component>
@@ -1242,14 +1228,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_clock.h"/>
       </source>
     </component>
-    <component id="platform.drivers.cmp.MKV31F51212" name="cmp" full_name="CMP Driver" type="driver" brief="CMP Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_cmp.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_cmp.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.cmp.MKV31F25612" name="cmp" full_name="CMP Driver" type="driver" brief="CMP Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_cmp.c"/>
@@ -1258,12 +1236,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_cmp.h"/>
       </source>
     </component>
-    <component id="platform.drivers.common.MKV31F51212" name="common" full_name="COMMON Driver" type="driver" brief="COMMON Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
+    <component id="platform.drivers.cmp.MKV31F51212" name="cmp" full_name="CMP Driver" type="driver" brief="CMP Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_common.c"/>
+        <files mask="fsl_cmp.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_common.h"/>
+        <files mask="fsl_cmp.h"/>
       </source>
     </component>
     <component id="platform.drivers.common.MKV31F25612" name="common" full_name="COMMON Driver" type="driver" brief="COMMON Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
@@ -1274,12 +1252,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_common.h"/>
       </source>
     </component>
-    <component id="platform.drivers.crc.MKV31F51212" name="crc" full_name="CRC Driver" type="driver" brief="CRC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
+    <component id="platform.drivers.common.MKV31F51212" name="common" full_name="COMMON Driver" type="driver" brief="COMMON Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_crc.c"/>
+        <files mask="fsl_common.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_crc.h"/>
+        <files mask="fsl_common.h"/>
       </source>
     </component>
     <component id="platform.drivers.crc.MKV31F25612" name="crc" full_name="CRC Driver" type="driver" brief="CRC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
@@ -1290,12 +1268,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_crc.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dac.MKV31F51212" name="dac" full_name="DAC Driver" type="driver" brief="DAC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
+    <component id="platform.drivers.crc.MKV31F51212" name="crc" full_name="CRC Driver" type="driver" brief="CRC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_dac.c"/>
+        <files mask="fsl_crc.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_dac.h"/>
+        <files mask="fsl_crc.h"/>
       </source>
     </component>
     <component id="platform.drivers.dac.MKV31F25612" name="dac" full_name="DAC Driver" type="driver" brief="DAC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
@@ -1306,12 +1284,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dac.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dmamux.MKV31F25612" name="dmamux" full_name="DMAMUX Driver" type="driver" brief="DMAMUX Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.2" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_dmamux.c"/>
+    <component id="platform.drivers.dac.MKV31F51212" name="dac" full_name="DAC Driver" type="driver" brief="DAC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dac.c"/>
       </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_dmamux.h"/>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dac.h"/>
       </source>
     </component>
     <component id="platform.drivers.dmamux.MKV31F51212" name="dmamux" full_name="DMAMUX Driver" type="driver" brief="DMAMUX Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.2" user_visible="true">
@@ -1319,6 +1297,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dmamux.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dmamux.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.dmamux.MKV31F25612" name="dmamux" full_name="DMAMUX Driver" type="driver" brief="DMAMUX Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.2" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dmamux.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_dmamux.h"/>
       </source>
     </component>
@@ -1338,7 +1324,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dspi_edma.MKV31F25612" name="dspi_edma" full_name="DSPI_EDMA Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.dspi.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="2.2.0" user_visible="true">
+    <component id="platform.drivers.dspi_edma.MKV31F25612" name="dspi_edma" full_name="DSPI_EDMA Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="2.2.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_dspi_edma.c"/>
       </source>
@@ -1346,7 +1332,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dspi_edma.MKV31F51212" name="dspi_edma" full_name="DSPI_EDMA Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.dspi.MKV31F51212 platform.drivers.edma.MKV31F51212" devices="MKV31F512xxx12" version="2.2.0" user_visible="true">
+    <component id="platform.drivers.dspi_edma.MKV31F51212" name="dspi_edma" full_name="DSPI_EDMA Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212 platform.drivers.edma.MKV31F51212" devices="MKV31F512xxx12" version="2.2.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_dspi_edma.c"/>
       </source>
@@ -1354,28 +1340,20 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.edma.MKV31F25612" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612" devices="MKV31F256xxx12" version="2.1.2" user_visible="true">
+    <component id="platform.drivers.edma.MKV31F51212" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.2" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_edma.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_edma.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.edma.MKV31F25612" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.2" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_edma.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_edma.h"/>
-      </source>
-    </component>
-    <component id="platform.drivers.edma.MKV31F51212" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212" devices="MKV31F512xxx12" version="2.1.2" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_edma.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_edma.h"/>
-      </source>
-    </component>
-    <component id="platform.drivers.ewm.MKV31F51212" name="ewm" full_name="EWM Driver" type="driver" brief="EWM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_ewm.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_ewm.h"/>
       </source>
     </component>
     <component id="platform.drivers.ewm.MKV31F25612" name="ewm" full_name="EWM Driver" type="driver" brief="EWM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
@@ -1386,20 +1364,48 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_ewm.h"/>
       </source>
     </component>
-    <component id="platform.drivers.flash.MKV31F51212" name="flash" full_name="Flash Driver" type="driver" brief="Flash Driver" devices="MKV31F512xxx12" version="2.4.1" user_visible="true">
+    <component id="platform.drivers.ewm.MKV31F51212" name="ewm" full_name="EWM Driver" type="driver" brief="EWM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_flash.c"/>
+        <files mask="fsl_ewm.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_ewm.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.flash.MKV31F51212" name="flash" full_name="Flash Driver" type="driver" brief="Flash Driver" devices="MKV31F512xxx12" version="3.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_ftfx_cache.c"/>
+        <files mask="fsl_ftfx_controller.c"/>
+        <files mask="fsl_ftfx_flash.c"/>
+        <files mask="fsl_ftfx_flexnvm.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_flash.h"/>
+        <files mask="fsl_ftfx_adapter.h"/>
+        <files mask="fsl_ftfx_cache.h"/>
+        <files mask="fsl_ftfx_controller.h"/>
+        <files mask="fsl_ftfx_features.h"/>
+        <files mask="fsl_ftfx_flash.h"/>
+        <files mask="fsl_ftfx_flexnvm.h"/>
+        <files mask="fsl_ftfx_utilities.h"/>
       </source>
     </component>
-    <component id="platform.drivers.flash.MKV31F25612" name="flash" full_name="Flash Driver" type="driver" brief="Flash Driver" devices="MKV31F256xxx12" version="2.4.1" user_visible="true">
+    <component id="platform.drivers.flash.MKV31F25612" name="flash" full_name="Flash Driver" type="driver" brief="Flash Driver" devices="MKV31F256xxx12" version="3.0.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_flash.c"/>
+        <files mask="fsl_ftfx_cache.c"/>
+        <files mask="fsl_ftfx_controller.c"/>
+        <files mask="fsl_ftfx_flash.c"/>
+        <files mask="fsl_ftfx_flexnvm.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_flash.h"/>
+        <files mask="fsl_ftfx_adapter.h"/>
+        <files mask="fsl_ftfx_cache.h"/>
+        <files mask="fsl_ftfx_controller.h"/>
+        <files mask="fsl_ftfx_features.h"/>
+        <files mask="fsl_ftfx_flash.h"/>
+        <files mask="fsl_ftfx_flexnvm.h"/>
+        <files mask="fsl_ftfx_utilities.h"/>
       </source>
     </component>
     <component id="platform.drivers.flexbus.MKV31F51212" name="flexbus" full_name="FLEXBUS Driver" type="driver" brief="FLEXBUS Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
@@ -1410,7 +1416,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_flexbus.h"/>
       </source>
     </component>
-    <component id="platform.drivers.ftm.MKV31F25612" name="ftm" full_name="FTM Driver" type="driver" brief="FTM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.2" user_visible="true">
+    <component id="platform.drivers.ftm.MKV31F25612" name="ftm" full_name="FTM Driver" type="driver" brief="FTM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.4" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_ftm.c"/>
       </source>
@@ -1418,7 +1424,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_ftm.h"/>
       </source>
     </component>
-    <component id="platform.drivers.ftm.MKV31F51212" name="ftm" full_name="FTM Driver" type="driver" brief="FTM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.2" user_visible="true">
+    <component id="platform.drivers.ftm.MKV31F51212" name="ftm" full_name="FTM Driver" type="driver" brief="FTM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.4" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_ftm.c"/>
       </source>
@@ -1458,19 +1464,19 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_i2c.h"/>
       </source>
     </component>
-    <component id="platform.drivers.i2c_edma.MKV31F51212" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.i2c.MKV31F51212" devices="MKV31F512xxx12" version="2.0.5" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_i2c_edma.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_i2c_edma.h"/>
-      </source>
-    </component>
-    <component id="platform.drivers.i2c_edma.MKV31F25612" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.5" user_visible="true">
+    <component id="platform.drivers.i2c_edma.MKV31F25612" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_i2c_edma.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_i2c_edma.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.i2c_edma.MKV31F51212" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.i2c.MKV31F51212" devices="MKV31F512xxx12" version="2.0.5" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_i2c_edma.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_i2c_edma.h"/>
       </source>
     </component>
@@ -1506,7 +1512,15 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lptmr.h"/>
       </source>
     </component>
-    <component id="platform.drivers.lpuart.MKV31F51212" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.2.4" user_visible="true">
+    <component id="platform.drivers.lpuart.MKV31F25612" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.2.5" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_lpuart.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_lpuart.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpuart.MKV31F51212" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.2.5" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_lpuart.c"/>
       </source>
@@ -1514,15 +1528,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lpuart.h"/>
       </source>
     </component>
-    <component id="platform.drivers.lpuart.MKV31F25612" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.2.4" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_lpuart.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_lpuart.h"/>
-      </source>
-    </component>
-    <component id="platform.drivers.lpuart_edma.MKV31F25612" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.lpuart.MKV31F25612" devices="MKV31F256xxx12" version="2.2.4" user_visible="true">
+    <component id="platform.drivers.lpuart_edma.MKV31F25612" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.lpuart.MKV31F25612" devices="MKV31F256xxx12" version="2.2.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_lpuart_edma.c"/>
       </source>
@@ -1530,7 +1536,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lpuart_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.lpuart_edma.MKV31F51212" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.lpuart.MKV31F51212" devices="MKV31F512xxx12" version="2.2.4" user_visible="true">
+    <component id="platform.drivers.lpuart_edma.MKV31F51212" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.lpuart.MKV31F51212" devices="MKV31F512xxx12" version="2.2.5" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_lpuart_edma.c"/>
       </source>
@@ -1554,19 +1560,19 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_pdb.h"/>
       </source>
     </component>
-    <component id="platform.drivers.pit.MKV31F51212" name="pit" full_name="PIT Driver" type="driver" brief="PIT Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_pit.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_pit.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.pit.MKV31F25612" name="pit" full_name="PIT Driver" type="driver" brief="PIT Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_pit.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_pit.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.pit.MKV31F51212" name="pit" full_name="PIT Driver" type="driver" brief="PIT Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_pit.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_pit.h"/>
       </source>
     </component>
@@ -1596,14 +1602,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_port.h"/>
       </source>
     </component>
-    <component id="platform.drivers.rcm.MKV31F25612" name="rcm" full_name="RCM Driver" type="driver" brief="RCM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_rcm.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_rcm.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.rcm.MKV31F51212" name="rcm" full_name="RCM Driver" type="driver" brief="RCM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_rcm.c"/>
@@ -1612,12 +1610,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_rcm.h"/>
       </source>
     </component>
-    <component id="platform.drivers.rnga.MKV31F25612" name="rnga" full_name="RNGA Driver" type="driver" brief="RNGA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+    <component id="platform.drivers.rcm.MKV31F25612" name="rcm" full_name="RCM Driver" type="driver" brief="RCM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_rnga.c"/>
+        <files mask="fsl_rcm.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_rnga.h"/>
+        <files mask="fsl_rcm.h"/>
       </source>
     </component>
     <component id="platform.drivers.rnga.MKV31F51212" name="rnga" full_name="RNGA Driver" type="driver" brief="RNGA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
@@ -1628,12 +1626,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_rnga.h"/>
       </source>
     </component>
-    <component id="platform.drivers.sim.MKV31F25612" name="sim" full_name="SIM Driver" type="driver" brief="SIM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
+    <component id="platform.drivers.rnga.MKV31F25612" name="rnga" full_name="RNGA Driver" type="driver" brief="RNGA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_sim.c"/>
+        <files mask="fsl_rnga.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_sim.h"/>
+        <files mask="fsl_rnga.h"/>
       </source>
     </component>
     <component id="platform.drivers.sim.MKV31F51212" name="sim" full_name="SIM Driver" type="driver" brief="SIM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
@@ -1644,12 +1642,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_sim.h"/>
       </source>
     </component>
-    <component id="platform.drivers.smc.MKV31F25612" name="smc" full_name="SMC Driver" type="driver" brief="SMC Driver" dependency="platform.drivers.flash.MKV31F25612" devices="MKV31F256xxx12" version="2.0.3" user_visible="true">
+    <component id="platform.drivers.sim.MKV31F25612" name="sim" full_name="SIM Driver" type="driver" brief="SIM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_smc.c"/>
+        <files mask="fsl_sim.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_smc.h"/>
+        <files mask="fsl_sim.h"/>
       </source>
     </component>
     <component id="platform.drivers.smc.MKV31F51212" name="smc" full_name="SMC Driver" type="driver" brief="SMC Driver" dependency="platform.drivers.flash.MKV31F51212" devices="MKV31F512xxx12" version="2.0.3" user_visible="true">
@@ -1660,12 +1658,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_smc.h"/>
       </source>
     </component>
-    <component id="platform.drivers.uart.MKV31F51212" name="uart" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.5" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_uart.c"/>
+    <component id="platform.drivers.smc.MKV31F25612" name="smc" full_name="SMC Driver" type="driver" brief="SMC Driver" dependency="platform.drivers.flash.MKV31F25612" devices="MKV31F256xxx12" version="2.0.3" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_smc.c"/>
       </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_uart.h"/>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_smc.h"/>
       </source>
     </component>
     <component id="platform.drivers.uart.MKV31F25612" name="uart" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.5" user_visible="true">
@@ -1676,15 +1674,15 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_uart.h"/>
       </source>
     </component>
-    <component id="platform.drivers.uart_edma.MKV31F51212" name="uart_edma" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.uart.MKV31F51212" devices="MKV31F512xxx12" version="2.1.5" user_visible="true">
+    <component id="platform.drivers.uart.MKV31F51212" name="uart" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.5" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_uart_edma.c"/>
+        <files mask="fsl_uart.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_uart_edma.h"/>
+        <files mask="fsl_uart.h"/>
       </source>
     </component>
-    <component id="platform.drivers.uart_edma.MKV31F25612" name="uart_edma" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.uart.MKV31F25612" devices="MKV31F256xxx12" version="2.1.5" user_visible="true">
+    <component id="platform.drivers.uart_edma.MKV31F25612" name="uart_edma" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.uart.MKV31F25612" devices="MKV31F256xxx12" version="2.1.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_uart_edma.c"/>
       </source>
@@ -1692,12 +1690,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_uart_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.vref.MKV31F51212" name="vref" full_name="VREF Driver" type="driver" brief="VREF Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
+    <component id="platform.drivers.uart_edma.MKV31F51212" name="uart_edma" full_name="UART Driver" type="driver" brief="UART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.uart.MKV31F51212" devices="MKV31F512xxx12" version="2.1.5" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_vref.c"/>
+        <files mask="fsl_uart_edma.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_vref.h"/>
+        <files mask="fsl_uart_edma.h"/>
       </source>
     </component>
     <component id="platform.drivers.vref.MKV31F25612" name="vref" full_name="VREF Driver" type="driver" brief="VREF Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
@@ -1705,6 +1703,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_vref.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_vref.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.vref.MKV31F51212" name="vref" full_name="VREF Driver" type="driver" brief="VREF Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_vref.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_vref.h"/>
       </source>
     </component>
@@ -1724,13 +1730,13 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_wdog.h"/>
       </source>
     </component>
-    <component id="platform.utilities.assert.MKV31F51212" name="assert" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/utilities" target_path="utilities" type="src">
+    <component id="platform.utilities.assert.MKV31F25612" name="assert" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/utilities" target_path="utilities" type="src">
         <files mask="fsl_assert.c"/>
       </source>
     </component>
-    <component id="platform.utilities.assert.MKV31F25612" name="assert" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/utilities" target_path="utilities" type="src">
+    <component id="platform.utilities.assert.MKV31F51212" name="assert" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/utilities" target_path="utilities" type="src">
         <files mask="fsl_assert.c"/>
       </source>
     </component>
@@ -1788,6 +1794,22 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_debug_console_conf.h"/>
       </source>
     </component>
+    <component id="platform.utilities.debug_console.swo.MKV31F25612" name="debug_console_swo" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/utilities/io/swo" target_path="utilities" type="src">
+        <files mask="fsl_swo.c"/>
+      </source>
+      <source path="devices/MKV31F25612/utilities/io/swo" target_path="utilities" type="c_include">
+        <files mask="fsl_swo.h"/>
+      </source>
+    </component>
+    <component id="platform.utilities.debug_console.swo.MKV31F51212" name="debug_console_swo" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/utilities/io/swo" target_path="utilities" type="src">
+        <files mask="fsl_swo.c"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities/io/swo" target_path="utilities" type="c_include">
+        <files mask="fsl_swo.h"/>
+      </source>
+    </component>
     <component id="platform.utilities.notifier.MKV31F51212" name="notifier" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <source path="devices/MKV31F51212/utilities" target_path="utilities" type="src">
         <files mask="fsl_notifier.c"/>
@@ -1842,64 +1864,192 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="TWR-KV31F120M.gif"/>
       </source>
     </component>
-    <component id="middleware.freertos.freertos_tickless_lptmr.MKV31F25612" name="freertos_tickless_lptmr" full_name="FreeRTOS_lptmr_tickless" type="other" brief="FreeRTOS lptmr tickless" category="Operating System/FreeRTOS Operating System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lptmr.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/low_power_tickless" target_path="freertos/portable" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" type="src">
-        <files mask="fsl_tickless_lptmr.c"/>
+    <component id="middleware.fatfs.unused_files.MKV31F25612" name="unused_files" type="other" brief="fatfs files unused by projects" devices="MKV31F256xxx12" version="3.9.8" revision="3" user_visible="false">
+      <source path="middleware/fatfs/documents/doc" target_path="fatfs/fatfs_files" exclude="true" type="doc">
+        <files mask="appnote.html"/>
+        <files mask="chdir.html"/>
+        <files mask="chdrive.html"/>
+        <files mask="chmod.html"/>
+        <files mask="close.html"/>
+        <files mask="closedir.html"/>
+        <files mask="config.html"/>
+        <files mask="dinit.html"/>
+        <files mask="dioctl.html"/>
+        <files mask="dread.html"/>
+        <files mask="dstat.html"/>
+        <files mask="dwrite.html"/>
+        <files mask="eof.html"/>
+        <files mask="error.html"/>
+        <files mask="expand.html"/>
+        <files mask="fattime.html"/>
+        <files mask="fdisk.html"/>
+        <files mask="filename.html"/>
+        <files mask="findfirst.html"/>
+        <files mask="findnext.html"/>
+        <files mask="forward.html"/>
+        <files mask="getcwd.html"/>
+        <files mask="getfree.html"/>
+        <files mask="getlabel.html"/>
+        <files mask="gets.html"/>
+        <files mask="lseek.html"/>
+        <files mask="mkdir.html"/>
+        <files mask="mkfs.html"/>
+        <files mask="mount.html"/>
+        <files mask="open.html"/>
+        <files mask="opendir.html"/>
+        <files mask="printf.html"/>
+        <files mask="putc.html"/>
+        <files mask="puts.html"/>
+        <files mask="rc.html"/>
+        <files mask="read.html"/>
+        <files mask="readdir.html"/>
+        <files mask="rename.html"/>
+        <files mask="sdir.html"/>
+        <files mask="setcp.html"/>
+        <files mask="setlabel.html"/>
+        <files mask="sfatfs.html"/>
+        <files mask="sfile.html"/>
+        <files mask="sfileinfo.html"/>
+        <files mask="size.html"/>
+        <files mask="stat.html"/>
+        <files mask="sync.html"/>
+        <files mask="tell.html"/>
+        <files mask="truncate.html"/>
+        <files mask="unlink.html"/>
+        <files mask="utime.html"/>
+        <files mask="write.html"/>
+      </source>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="doc">
+        <files mask="mkfs.xls"/>
+      </source>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="image">
+        <files mask="f1.png"/>
+        <files mask="f2.png"/>
+        <files mask="f3.png"/>
+        <files mask="f4.png"/>
+        <files mask="f5.png"/>
+        <files mask="f6.png"/>
+        <files mask="f7.png"/>
+        <files mask="funcs.png"/>
+        <files mask="layers.png"/>
+        <files mask="layers1.png"/>
+        <files mask="layers2.png"/>
+        <files mask="layers3.png"/>
+        <files mask="modules.png"/>
+        <files mask="rwtest1.png"/>
+        <files mask="rwtest2.png"/>
+        <files mask="rwtest3.png"/>
+      </source>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="src">
+        <files mask="app1.c"/>
+        <files mask="app2.c"/>
+        <files mask="app3.c"/>
+        <files mask="app4.c"/>
+      </source>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="archive">
+        <files mask="mkfatimg.zip"/>
+      </source>
+      <source path="middleware/fatfs/documents" target_path="fatfs/fatfs_files" exclude="true" type="doc">
+        <files mask="00index_e.html"/>
+        <files mask="css_e.css"/>
+        <files mask="updates.txt"/>
+      </source>
+      <source path="middleware/fatfs/source" target_path="fatfs/fatfs_files" exclude="true" type="c_include">
+        <files mask="ffconf_template.h"/>
       </source>
     </component>
-    <component id="middleware.freertos.freertos_tickless_lptmr.MKV31F51212" name="freertos_tickless_lptmr" full_name="FreeRTOS_lptmr_tickless" type="other" brief="FreeRTOS lptmr tickless" category="Operating System/FreeRTOS Operating System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lptmr.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/low_power_tickless" target_path="freertos/portable" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" type="src">
-        <files mask="fsl_tickless_lptmr.c"/>
+    <component id="middleware.fatfs.unused_files.MKV31F51212" name="unused_files" type="other" brief="fatfs files unused by projects" devices="MKV31F512xxx12" version="3.9.8" revision="3" user_visible="false">
+      <source path="middleware/fatfs/documents/doc" target_path="fatfs/fatfs_files" exclude="true" type="doc">
+        <files mask="appnote.html"/>
+        <files mask="chdir.html"/>
+        <files mask="chdrive.html"/>
+        <files mask="chmod.html"/>
+        <files mask="close.html"/>
+        <files mask="closedir.html"/>
+        <files mask="config.html"/>
+        <files mask="dinit.html"/>
+        <files mask="dioctl.html"/>
+        <files mask="dread.html"/>
+        <files mask="dstat.html"/>
+        <files mask="dwrite.html"/>
+        <files mask="eof.html"/>
+        <files mask="error.html"/>
+        <files mask="expand.html"/>
+        <files mask="fattime.html"/>
+        <files mask="fdisk.html"/>
+        <files mask="filename.html"/>
+        <files mask="findfirst.html"/>
+        <files mask="findnext.html"/>
+        <files mask="forward.html"/>
+        <files mask="getcwd.html"/>
+        <files mask="getfree.html"/>
+        <files mask="getlabel.html"/>
+        <files mask="gets.html"/>
+        <files mask="lseek.html"/>
+        <files mask="mkdir.html"/>
+        <files mask="mkfs.html"/>
+        <files mask="mount.html"/>
+        <files mask="open.html"/>
+        <files mask="opendir.html"/>
+        <files mask="printf.html"/>
+        <files mask="putc.html"/>
+        <files mask="puts.html"/>
+        <files mask="rc.html"/>
+        <files mask="read.html"/>
+        <files mask="readdir.html"/>
+        <files mask="rename.html"/>
+        <files mask="sdir.html"/>
+        <files mask="setcp.html"/>
+        <files mask="setlabel.html"/>
+        <files mask="sfatfs.html"/>
+        <files mask="sfile.html"/>
+        <files mask="sfileinfo.html"/>
+        <files mask="size.html"/>
+        <files mask="stat.html"/>
+        <files mask="sync.html"/>
+        <files mask="tell.html"/>
+        <files mask="truncate.html"/>
+        <files mask="unlink.html"/>
+        <files mask="utime.html"/>
+        <files mask="write.html"/>
       </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_1.MKV31F25612" name="heap_1" full_name="FreeRTOS_heap_1" type="other" brief="FreeRTOS heap_1 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_1.c"/>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="doc">
+        <files mask="mkfs.xls"/>
       </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_1.MKV31F51212" name="heap_1" full_name="FreeRTOS_heap_1" type="other" brief="FreeRTOS heap_1 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_1.c"/>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="image">
+        <files mask="f1.png"/>
+        <files mask="f2.png"/>
+        <files mask="f3.png"/>
+        <files mask="f4.png"/>
+        <files mask="f5.png"/>
+        <files mask="f6.png"/>
+        <files mask="f7.png"/>
+        <files mask="funcs.png"/>
+        <files mask="layers.png"/>
+        <files mask="layers1.png"/>
+        <files mask="layers2.png"/>
+        <files mask="layers3.png"/>
+        <files mask="modules.png"/>
+        <files mask="rwtest1.png"/>
+        <files mask="rwtest2.png"/>
+        <files mask="rwtest3.png"/>
       </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_2.MKV31F25612" name="heap_2" full_name="FreeRTOS_heap_2" type="other" brief="FreeRTOS heap_2 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_2.c"/>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="src">
+        <files mask="app1.c"/>
+        <files mask="app2.c"/>
+        <files mask="app3.c"/>
+        <files mask="app4.c"/>
       </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_2.MKV31F51212" name="heap_2" full_name="FreeRTOS_heap_2" type="other" brief="FreeRTOS heap_2 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_2.c"/>
+      <source path="middleware/fatfs/documents/res" target_path="fatfs/fatfs_files" exclude="true" type="archive">
+        <files mask="mkfatimg.zip"/>
       </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_3.MKV31F25612" name="heap_3" full_name="FreeRTOS_heap_3" type="other" brief="FreeRTOS heap_3 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_3.c"/>
+      <source path="middleware/fatfs/documents" target_path="fatfs/fatfs_files" exclude="true" type="doc">
+        <files mask="00index_e.html"/>
+        <files mask="css_e.css"/>
+        <files mask="updates.txt"/>
       </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_3.MKV31F51212" name="heap_3" full_name="FreeRTOS_heap_3" type="other" brief="FreeRTOS heap_3 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_3.c"/>
-      </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_4.MKV31F25612" name="heap_4" full_name="FreeRTOS_heap_4" type="other" brief="FreeRTOS heap_4 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_4.c"/>
-      </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_4.MKV31F51212" name="heap_4" full_name="FreeRTOS_heap_4" type="other" brief="FreeRTOS heap_4 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_4.c"/>
-      </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_5.MKV31F25612" name="heap_5" full_name="FreeRTOS_heap_5" type="other" brief="FreeRTOS heap_5 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_5.c"/>
-      </source>
-    </component>
-    <component id="middleware.freertos.heap.heap_5.MKV31F51212" name="heap_5" full_name="FreeRTOS_heap_5" type="other" brief="FreeRTOS heap_5 allocator" category="Operating System/FreeRTOS Operating System" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="rtos/freertos/Source/portable/MemMang" target_path="freertos/portable" type="src">
-        <files mask="heap_5.c"/>
+      <source path="middleware/fatfs/source" target_path="fatfs/fatfs_files" exclude="true" type="c_include">
+        <files mask="ffconf_template.h"/>
       </source>
     </component>
     <component id="tools.MKV31F25612" name="tools" type="other" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
@@ -1914,240 +2064,252 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="armgcc_force_cpp.cmake"/>
       </source>
     </component>
-    <component id="middleware.dma_manager.MKV31F25612" name="dma_manager" type="middleware" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
-      <source path="middleware/dma_manager" type="src">
-        <files mask="fsl_dma_manager.c"/>
-      </source>
-      <source path="middleware/dma_manager" type="c_include">
-        <files mask="fsl_dma_manager.h"/>
-      </source>
-    </component>
-    <component id="middleware.dma_manager.MKV31F51212" name="dma_manager" type="middleware" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
-      <source path="middleware/dma_manager" type="src">
-        <files mask="fsl_dma_manager.c"/>
-      </source>
-      <source path="middleware/dma_manager" type="c_include">
-        <files mask="fsl_dma_manager.h"/>
-      </source>
-    </component>
-    <component id="middleware.fatfs.MKV31F25612" name="fatfs" full_name="FAT File System stack" type="middleware" brief="FatFs" category="File System/FAT File System" devices="MKV31F256xxx12" version="0.12.3" revision="0" user_visible="false">
-      <source path="middleware/fatfs/src/option" target_path="fatfs/fatfs_option" exclude="true" type="src">
-        <files mask="cc932.c"/>
-        <files mask="cc936.c"/>
-        <files mask="cc950.c"/>
-        <files mask="ccsbcs.c"/>
-        <files mask="syscall.c"/>
-        <files mask="unicode.c"/>
-      </source>
-      <source path="middleware/fatfs/src" target_path="fatfs/fatfs_source" type="src">
+    <component id="middleware.fatfs.MKV31F25612" name="fatfs" full_name="FAT File System stack" type="middleware" brief="FatFs" category="File System/FAT File System" devices="MKV31F256xxx12" version="0.13.1" revision="0" user_visible="false">
+      <source path="middleware/fatfs/source" target_path="fatfs/fatfs_source" type="src">
         <files mask="diskio.c"/>
         <files mask="ff.c"/>
+        <files mask="ffsystem.c"/>
+        <files mask="ffunicode.c"/>
       </source>
-      <source path="middleware/fatfs/src" target_path="fatfs/fatfs_include" type="c_include">
+      <source path="middleware/fatfs/source" target_path="fatfs/fatfs_include" type="c_include">
         <files mask="diskio.h"/>
         <files mask="ff.h"/>
         <files mask="integer.h"/>
       </source>
     </component>
-    <component id="middleware.fatfs.MKV31F51212" name="fatfs" full_name="FAT File System stack" type="middleware" brief="FatFs" category="File System/FAT File System" devices="MKV31F512xxx12" version="0.12.3" revision="0" user_visible="false">
-      <source path="middleware/fatfs/src/option" target_path="fatfs/fatfs_option" exclude="true" type="src">
-        <files mask="cc932.c"/>
-        <files mask="cc936.c"/>
-        <files mask="cc950.c"/>
-        <files mask="ccsbcs.c"/>
-        <files mask="syscall.c"/>
-        <files mask="unicode.c"/>
-      </source>
-      <source path="middleware/fatfs/src" target_path="fatfs/fatfs_source" type="src">
+    <component id="middleware.fatfs.MKV31F51212" name="fatfs" full_name="FAT File System stack" type="middleware" brief="FatFs" category="File System/FAT File System" devices="MKV31F512xxx12" version="0.13.1" revision="0" user_visible="false">
+      <source path="middleware/fatfs/source" target_path="fatfs/fatfs_source" type="src">
         <files mask="diskio.c"/>
         <files mask="ff.c"/>
+        <files mask="ffsystem.c"/>
+        <files mask="ffunicode.c"/>
       </source>
-      <source path="middleware/fatfs/src" target_path="fatfs/fatfs_include" type="c_include">
+      <source path="middleware/fatfs/source" target_path="fatfs/fatfs_include" type="c_include">
         <files mask="diskio.h"/>
         <files mask="ff.h"/>
         <files mask="integer.h"/>
       </source>
     </component>
-    <component id="middleware.fatfs.freertos.MKV31F25612" name="freertos" full_name="FatFs FreeRTOS support" type="middleware" brief="FatFs_FreeRTOS" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_option" target_path="fatfs/fatfs_source" type="src">
-        <files mask="freertos_syscall.c"/>
+    <component id="middleware.fatfs.nand.MKV31F25612" name="nand" full_name="Fatfs NAND layer" type="middleware" brief="FatFs_NAND" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
+      <source path="middleware/fatfs/source/fsl_nand_disk" target_path="fatfs/fatfs_source" type="src">
+        <files mask="fsl_nand_disk.c"/>
+      </source>
+      <source path="middleware/fatfs/source/fsl_nand_disk" target_path="fatfs/fatfs_include" type="c_include">
+        <files mask="fsl_nand_disk.h"/>
       </source>
     </component>
-    <component id="middleware.fatfs.freertos.MKV31F51212" name="freertos" full_name="FatFs FreeRTOS support" type="middleware" brief="FatFs_FreeRTOS" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_option" target_path="fatfs/fatfs_source" type="src">
-        <files mask="freertos_syscall.c"/>
+    <component id="middleware.fatfs.nand.MKV31F51212" name="nand" full_name="Fatfs NAND layer" type="middleware" brief="FatFs_NAND" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
+      <source path="middleware/fatfs/source/fsl_nand_disk" target_path="fatfs/fatfs_source" type="src">
+        <files mask="fsl_nand_disk.c"/>
       </source>
-    </component>
-    <component id="middleware.fatfs.mmc.MKV31F25612" name="mmc" full_name="Fatfs MMC layer" type="middleware" brief="FatFs_MMC" category="File System/FAT File System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.fatfs.MKV31F25612 middleware.sdmmc.common.MKV31F25612 middleware.sdmmc.mmc.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_mmc_disk" target_path="fatfs/fatfs_source" type="src">
-        <files mask="fsl_mmc_disk.c"/>
-      </source>
-      <source path="middleware/fatfs/src/fsl_mmc_disk" target_path="fatfs/fatfs_include" type="c_include">
-        <files mask="fsl_mmc_disk.h"/>
-      </source>
-    </component>
-    <component id="middleware.fatfs.mmc.MKV31F51212" name="mmc" full_name="Fatfs MMC layer" type="middleware" brief="FatFs_MMC" category="File System/FAT File System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.fatfs.MKV31F51212 middleware.sdmmc.common.MKV31F51212 middleware.sdmmc.mmc.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_mmc_disk" target_path="fatfs/fatfs_source" type="src">
-        <files mask="fsl_mmc_disk.c"/>
-      </source>
-      <source path="middleware/fatfs/src/fsl_mmc_disk" target_path="fatfs/fatfs_include" type="c_include">
-        <files mask="fsl_mmc_disk.h"/>
+      <source path="middleware/fatfs/source/fsl_nand_disk" target_path="fatfs/fatfs_include" type="c_include">
+        <files mask="fsl_nand_disk.h"/>
       </source>
     </component>
     <component id="middleware.fatfs.ram.MKV31F25612" name="ram" full_name="Fatfs RAM layer" type="middleware" brief="FatFs_RAM" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_ram_disk" target_path="fatfs/fatfs_source" type="src">
+      <source path="middleware/fatfs/source/fsl_ram_disk" target_path="fatfs/fatfs_source" type="src">
         <files mask="fsl_ram_disk.c"/>
       </source>
-      <source path="middleware/fatfs/src/fsl_ram_disk" target_path="fatfs/fatfs_include" type="c_include">
+      <source path="middleware/fatfs/source/fsl_ram_disk" target_path="fatfs/fatfs_include" type="c_include">
         <files mask="fsl_ram_disk.h"/>
       </source>
     </component>
     <component id="middleware.fatfs.ram.MKV31F51212" name="ram" full_name="Fatfs RAM layer" type="middleware" brief="FatFs_RAM" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_ram_disk" target_path="fatfs/fatfs_source" type="src">
+      <source path="middleware/fatfs/source/fsl_ram_disk" target_path="fatfs/fatfs_source" type="src">
         <files mask="fsl_ram_disk.c"/>
       </source>
-      <source path="middleware/fatfs/src/fsl_ram_disk" target_path="fatfs/fatfs_include" type="c_include">
+      <source path="middleware/fatfs/source/fsl_ram_disk" target_path="fatfs/fatfs_include" type="c_include">
         <files mask="fsl_ram_disk.h"/>
       </source>
     </component>
-    <component id="middleware.fatfs.sd.MKV31F25612" name="sd" full_name="Fatfs SD layer" type="middleware" brief="FatFs_SD" category="File System/FAT File System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.fatfs.MKV31F25612 middleware.sdmmc.common.MKV31F25612 middleware.sdmmc.sd.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_sd_disk" target_path="fatfs/fatfs_source" type="src">
-        <files mask="fsl_sd_disk.c"/>
-      </source>
-      <source path="middleware/fatfs/src/fsl_sd_disk" target_path="fatfs/fatfs_include" type="c_include">
-        <files mask="fsl_sd_disk.h"/>
+    <component id="middleware.fatfs.usb.MKV31F25612" name="usb" full_name="Fatfs USB layer" type="middleware" brief="FatFs_USB" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F25612 middleware.usb.host.MKV31F25612 middleware.usb.host_controller_khci.MKV31F25612 middleware.usb.host_hub.MKV31F25612 middleware.usb.host_msd.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
+      <source path="middleware/fatfs/source/fsl_usb_disk" target_path="fatfs/fatfs_include" type="c_include">
+        <files mask="fsl_usb_disk.h"/>
       </source>
     </component>
-    <component id="middleware.fatfs.sd.MKV31F51212" name="sd" full_name="Fatfs SD layer" type="middleware" brief="FatFs_SD" category="File System/FAT File System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.fatfs.MKV31F51212 middleware.sdmmc.common.MKV31F51212 middleware.sdmmc.sd.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_sd_disk" target_path="fatfs/fatfs_source" type="src">
-        <files mask="fsl_sd_disk.c"/>
-      </source>
-      <source path="middleware/fatfs/src/fsl_sd_disk" target_path="fatfs/fatfs_include" type="c_include">
-        <files mask="fsl_sd_disk.h"/>
+    <component id="middleware.fatfs.usb.MKV31F51212" name="usb" full_name="Fatfs USB layer" type="middleware" brief="FatFs_USB" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F51212 middleware.usb.host.MKV31F51212 middleware.usb.host_controller_khci.MKV31F51212 middleware.usb.host_hub.MKV31F51212 middleware.usb.host_msd.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
+      <source path="middleware/fatfs/source/fsl_usb_disk" target_path="fatfs/fatfs_include" type="c_include">
+        <files mask="fsl_usb_disk.h"/>
       </source>
     </component>
-    <component id="middleware.fatfs.sdspi.MKV31F25612" name="sdspi" full_name="Fatfs SDSPI layer" type="middleware" brief="FatFs_SDSPI" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F25612 middleware.sdmmc.sdspi.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_sdspi_disk" target_path="fatfs/fatfs_source" type="src">
-        <files mask="fsl_sdspi_disk.c"/>
+    <component id="middleware.mmcau_cm0p.MKV31F25612" name="mmcau_cm0p" type="middleware" brief="MMCAU library for ARM Cortex M0 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="middleware/mmcau/asm-cm0p" target_path="libs" type="lib" toolchain="mcuxpresso">
+        <files mask="lib_mmcau-cm0p.a"/>
       </source>
-      <source path="middleware/fatfs/src/fsl_sdspi_disk" target_path="fatfs/fatfs_include" type="c_include">
-        <files mask="fsl_sdspi_disk.h"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
+        <files mask="fsl_mmcau.c"/>
       </source>
-    </component>
-    <component id="middleware.fatfs.sdspi.MKV31F51212" name="sdspi" full_name="Fatfs SDSPI layer" type="middleware" brief="FatFs_SDSPI" category="File System/FAT File System" dependency="middleware.fatfs.MKV31F51212 middleware.sdmmc.sdspi.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="false">
-      <source path="middleware/fatfs/src/fsl_sdspi_disk" target_path="fatfs/fatfs_source" type="src">
-        <files mask="fsl_sdspi_disk.c"/>
-      </source>
-      <source path="middleware/fatfs/src/fsl_sdspi_disk" target_path="fatfs/fatfs_include" type="c_include">
-        <files mask="fsl_sdspi_disk.h"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_include" type="c_include">
+        <files mask="cau_api.h"/>
+        <files mask="fsl_mmcau.h"/>
       </source>
     </component>
-    <component id="middleware.sdmmc.common.MKV31F25612" name="common" full_name="SDMMC common stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sdmmc_common.h"/>
-        <files mask="fsl_sdmmc_host.h"/>
-        <files mask="fsl_sdmmc_spec.h"/>
+    <component id="middleware.mmcau_cm0p.MKV31F51212" name="mmcau_cm0p" type="middleware" brief="MMCAU library for ARM Cortex M0 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
+      <source path="middleware/mmcau/asm-cm0p" target_path="libs" type="lib" toolchain="mcuxpresso">
+        <files mask="lib_mmcau-cm0p.a"/>
       </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sdmmc_common.c"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
+        <files mask="fsl_mmcau.c"/>
       </source>
-    </component>
-    <component id="middleware.sdmmc.common.MKV31F51212" name="common" full_name="SDMMC common stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sdmmc_common.h"/>
-        <files mask="fsl_sdmmc_host.h"/>
-        <files mask="fsl_sdmmc_spec.h"/>
-      </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sdmmc_common.c"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_include" type="c_include">
+        <files mask="cau_api.h"/>
+        <files mask="fsl_mmcau.h"/>
       </source>
     </component>
-    <component id="middleware.sdmmc.mmc.MKV31F25612" name="mmc" full_name="SDMMC mmc stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.sdmmc.common.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_mmc.h"/>
+    <component id="middleware.mmcau_cm4_cm7.MKV31F25612" name="mmcau_cm4_cm7" type="middleware" brief="MMCAU library for ARM Cortex M4/M7 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="middleware/mmcau/asm-cm4-cm7" target_path="libs" type="lib" toolchain="mcuxpresso">
+        <files mask="lib_mmcau.a"/>
       </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_mmc.c"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
+        <files mask="fsl_mmcau.c"/>
       </source>
-    </component>
-    <component id="middleware.sdmmc.mmc.MKV31F51212" name="mmc" full_name="SDMMC mmc stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.sdmmc.common.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_mmc.h"/>
-      </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_mmc.c"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_include" type="c_include">
+        <files mask="cau_api.h"/>
+        <files mask="fsl_mmcau.h"/>
       </source>
     </component>
-    <component id="middleware.sdmmc.sd.MKV31F25612" name="sd" full_name="SDMMC sd stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.sdmmc.common.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sd.h"/>
+    <component id="middleware.mmcau_cm4_cm7.MKV31F51212" name="mmcau_cm4_cm7" type="middleware" brief="MMCAU library for ARM Cortex M4/M7 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
+      <source path="middleware/mmcau/asm-cm4-cm7" target_path="libs" type="lib" toolchain="mcuxpresso">
+        <files mask="lib_mmcau.a"/>
       </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sd.c"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
+        <files mask="fsl_mmcau.c"/>
       </source>
-    </component>
-    <component id="middleware.sdmmc.sd.MKV31F51212" name="sd" full_name="SDMMC sd stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.sdmmc.common.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sd.h"/>
-      </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sd.c"/>
+      <source path="middleware/mmcau" target_path="mmcau/mmcau_include" type="c_include">
+        <files mask="cau_api.h"/>
+        <files mask="fsl_mmcau.h"/>
       </source>
     </component>
-    <component id="middleware.sdmmc.sdio.MKV31F25612" name="sdio" full_name="SDMMC sdio stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.sdmmc.common.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sdio.h"/>
+    <component id="middleware.usb.host.MKV31F25612" name="common driver" full_name="USB stack" type="middleware" dependency="middleware.usb.host_controller_khci.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host" target_path="usb/host" type="src">
+        <files mask="usb_host_devices.c"/>
+        <files mask="usb_host_framework.c"/>
+        <files mask="usb_host_hci.c"/>
       </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sdio.c"/>
-      </source>
-    </component>
-    <component id="middleware.sdmmc.sdio.MKV31F51212" name="sdio" full_name="SDMMC sdio stack" type="middleware" category="Memories/SDMMC Stack" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.sdmmc.common.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="2.2.1" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sdio.h"/>
-      </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sdio.c"/>
+      <source path="middleware/usb/host" target_path="usb/host" type="c_include">
+        <files mask="usb_host.h"/>
+        <files mask="usb_host_devices.h"/>
+        <files mask="usb_host_framework.h"/>
+        <files mask="usb_host_hci.h"/>
       </source>
     </component>
-    <component id="middleware.sdmmc.sdspi.MKV31F25612" name="sdspi" full_name="SDMMC sdspi stack" type="middleware" category="Memories/SDMMC Stack" devices="MKV31F256xxx12" version="2.1.2" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sdmmc_spec.h"/>
-        <files mask="fsl_sdspi.h"/>
+    <component id="middleware.usb.host.MKV31F51212" name="common driver" full_name="USB stack" type="middleware" dependency="middleware.usb.host_controller_khci.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host" target_path="usb/host" type="src">
+        <files mask="usb_host_devices.c"/>
+        <files mask="usb_host_framework.c"/>
+        <files mask="usb_host_hci.c"/>
       </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sdspi.c"/>
-      </source>
-    </component>
-    <component id="middleware.sdmmc.sdspi.MKV31F51212" name="sdspi" full_name="SDMMC sdspi stack" type="middleware" category="Memories/SDMMC Stack" devices="MKV31F512xxx12" version="2.1.2" user_visible="true">
-      <source path="middleware/sdmmc/inc" target_path="sdmmc/inc" type="c_include">
-        <files mask="fsl_sdmmc_spec.h"/>
-        <files mask="fsl_sdspi.h"/>
-      </source>
-      <source path="middleware/sdmmc/src" target_path="sdmmc/src" type="src">
-        <files mask="fsl_sdspi.c"/>
+      <source path="middleware/usb/host" target_path="usb/host" type="c_include">
+        <files mask="usb_host.h"/>
+        <files mask="usb_host_devices.h"/>
+        <files mask="usb_host_framework.h"/>
+        <files mask="usb_host_hci.h"/>
       </source>
     </component>
-    <component id="middleware.template_application.fatfs.MKV31F25612" name="fatfs" full_name="FatFs template application" type="middleware" brief="FatFs template" category="File System/FAT File System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.fatfs.MKV31F25612 middleware.fatfs.mmc.MKV31F25612 middleware.fatfs.ram.MKV31F25612 middleware.fatfs.sd.MKV31F25612 middleware.fatfs.sdspi.MKV31F25612 middleware.sdmmc.common.MKV31F25612 middleware.sdmmc.mmc.MKV31F25612 middleware.sdmmc.sd.MKV31F25612 middleware.sdmmc.sdspi.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dspi.MKV31F25612" devices="MKV31F256xxx12" version="0.12" user_visible="true">
-      <source path="middleware/fatfs/template_application" target_path="fatfs" type="c_include">
-        <files mask="ffconf.h"/>
+    <component id="middleware.usb.host_controller_khci.MKV31F25612" name="KHCI driver(FS)" full_name="USB stack" type="middleware" devices="MKV31F256xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host" target_path="usb/host" type="src">
+        <files mask="usb_host_khci.c"/>
+      </source>
+      <source path="middleware/usb/host" target_path="usb/host" type="c_include">
+        <files mask="usb_host_khci.h"/>
+      </source>
+      <source path="middleware/usb/include" target_path="usb/include" type="c_include">
+        <files mask="usb.h"/>
+        <files mask="usb_misc.h"/>
+        <files mask="usb_spec.h"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.baremetal.MKV31F25612" type="src">
+        <files mask="usb_osa_bm.c"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.freertos" type="src">
+        <files mask="usb_osa_freertos.c"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.baremetal.MKV31F25612" type="c_include">
+        <files mask="usb_osa_bm.h"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" type="c_include">
+        <files mask="usb_osa.h"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.freertos" type="c_include">
+        <files mask="usb_osa_freertos.h"/>
       </source>
     </component>
-    <component id="middleware.template_application.fatfs.MKV31F51212" name="fatfs" full_name="FatFs template application" type="middleware" brief="FatFs template" category="File System/FAT File System" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="middleware.fatfs.MKV31F51212 middleware.fatfs.mmc.MKV31F51212 middleware.fatfs.ram.MKV31F51212 middleware.fatfs.sd.MKV31F51212 middleware.fatfs.sdspi.MKV31F51212 middleware.sdmmc.common.MKV31F51212 middleware.sdmmc.mmc.MKV31F51212 middleware.sdmmc.sd.MKV31F51212 middleware.sdmmc.sdspi.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dspi.MKV31F51212" devices="MKV31F512xxx12" version="0.12" user_visible="true">
-      <source path="middleware/fatfs/template_application" target_path="fatfs" type="c_include">
-        <files mask="ffconf.h"/>
+    <component id="middleware.usb.host_controller_khci.MKV31F51212" name="KHCI driver(FS)" full_name="USB stack" type="middleware" devices="MKV31F512xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host" target_path="usb/host" type="src">
+        <files mask="usb_host_khci.c"/>
+      </source>
+      <source path="middleware/usb/host" target_path="usb/host" type="c_include">
+        <files mask="usb_host_khci.h"/>
+      </source>
+      <source path="middleware/usb/include" target_path="usb/include" type="c_include">
+        <files mask="usb.h"/>
+        <files mask="usb_misc.h"/>
+        <files mask="usb_spec.h"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.baremetal.MKV31F51212" type="src">
+        <files mask="usb_osa_bm.c"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.freertos" type="src">
+        <files mask="usb_osa_freertos.c"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.baremetal.MKV31F51212" type="c_include">
+        <files mask="usb_osa_bm.h"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" type="c_include">
+        <files mask="usb_osa.h"/>
+      </source>
+      <source path="middleware/usb/osa" target_path="osa" condition="middleware.freertos" type="c_include">
+        <files mask="usb_osa_freertos.h"/>
+      </source>
+    </component>
+    <component id="middleware.usb.host_hub.MKV31F25612" name="Hub class" full_name="USB stack" type="middleware" dependency="middleware.usb.host.MKV31F25612 middleware.usb.host_controller_khci.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="src">
+        <files mask="usb_host_hub.c"/>
+        <files mask="usb_host_hub_app.c"/>
+      </source>
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="c_include">
+        <files mask="usb_host_hub.h"/>
+        <files mask="usb_host_hub_app.h"/>
+      </source>
+    </component>
+    <component id="middleware.usb.host_hub.MKV31F51212" name="Hub class" full_name="USB stack" type="middleware" dependency="middleware.usb.host.MKV31F51212 middleware.usb.host_controller_khci.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="src">
+        <files mask="usb_host_hub.c"/>
+        <files mask="usb_host_hub_app.c"/>
+      </source>
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="c_include">
+        <files mask="usb_host_hub.h"/>
+        <files mask="usb_host_hub_app.h"/>
+      </source>
+    </component>
+    <component id="middleware.usb.host_msd.MKV31F25612" name="Mass Storage class" full_name="USB stack" type="middleware" dependency="middleware.usb.host.MKV31F25612 middleware.usb.host_controller_khci.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="src">
+        <files mask="usb_host_msd.c"/>
+        <files mask="usb_host_msd_ufi.c"/>
+      </source>
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="c_include">
+        <files mask="usb_host_msd.h"/>
+      </source>
+    </component>
+    <component id="middleware.usb.host_msd.MKV31F51212" name="Mass Storage class" full_name="USB stack" type="middleware" dependency="middleware.usb.host.MKV31F51212 middleware.usb.host_controller_khci.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="false">
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="src">
+        <files mask="usb_host_msd.c"/>
+        <files mask="usb_host_msd_ufi.c"/>
+      </source>
+      <source path="middleware/usb/host/class" target_path="usb/host/class" type="c_include">
+        <files mask="usb_host_msd.h"/>
       </source>
     </component>
     <component id="middleware.baremetal.MKV31F25612" name="baremetal" full_name="Baremetal" type="OS" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
       <defines>
-        <define name="SDK_OS_BAREMETAL" value=""/>
         <define name="FSL_RTOS_BM" value=""/>
+        <define name="SDK_OS_BAREMETAL" value=""/>
       </defines>
     </component>
     <component id="middleware.baremetal.MKV31F51212" name="baremetal" full_name="Baremetal" type="OS" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <defines>
-        <define name="FSL_RTOS_BM" value=""/>
         <define name="SDK_OS_BAREMETAL" value=""/>
+        <define name="FSL_RTOS_BM" value=""/>
       </defines>
     </component>
     <component id="platform.CMSIS" name="CMSIS" type="CMSIS" dependency="platform.CMSIS_Driver platform.CMSIS_Driver_Include.CAN_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.CAN_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Flash_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Flash_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.MCI_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.MCI_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.NAND_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.NAND_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.SAI_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.SAI_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F25612 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F25612 platform.Include_core_cm4.MKV31F51212" version="5.0.1" user_visible="true">
@@ -2162,6 +2324,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="cmsis_armclang.h"/>
         <files mask="cmsis_compiler.h"/>
         <files mask="cmsis_gcc.h"/>
+        <files mask="cmsis_iccarm.h"/>
         <files mask="cmsis_version.h"/>
         <files mask="core_armv8mbl.h"/>
         <files mask="core_armv8mml.h"/>
@@ -2175,6 +2338,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="core_sc000.h"/>
         <files mask="core_sc300.h"/>
         <files mask="mpu_armv7.h"/>
+        <files mask="mpu_armv8.h"/>
         <files mask="tz_context.h"/>
       </source>
     </component>
@@ -2216,14 +2380,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="system_MKV31F51212.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dspi_cmsis.MKV31F25612" name="dspi_cmsis" type="CMSIS_driver" brief="DSPI CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.dspi.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="src">
-        <files mask="fsl_dspi_cmsis.c"/>
-      </source>
-      <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_dspi_cmsis.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.dspi_cmsis.MKV31F51212" name="dspi_cmsis" type="CMSIS_driver" brief="DSPI CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.dspi.MKV31F51212 platform.drivers.edma.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="src">
         <files mask="fsl_dspi_cmsis.c"/>
@@ -2232,12 +2388,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi_cmsis.h"/>
       </source>
     </component>
-    <component id="platform.drivers.i2c_cmsis.MKV31F25612" name="i2c_cmsis" type="CMSIS_driver" brief="I2C CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+    <component id="platform.drivers.dspi_cmsis.MKV31F25612" name="dspi_cmsis" type="CMSIS_driver" brief="DSPI CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.dspi.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="src">
-        <files mask="fsl_i2c_cmsis.c"/>
+        <files mask="fsl_dspi_cmsis.c"/>
       </source>
       <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_i2c_cmsis.h"/>
+        <files mask="fsl_dspi_cmsis.h"/>
       </source>
     </component>
     <component id="platform.drivers.i2c_cmsis.MKV31F51212" name="i2c_cmsis" type="CMSIS_driver" brief="I2C CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.i2c.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
@@ -2245,6 +2401,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_i2c_cmsis.c"/>
       </source>
       <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_i2c_cmsis.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.i2c_cmsis.MKV31F25612" name="i2c_cmsis" type="CMSIS_driver" brief="I2C CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="src">
+        <files mask="fsl_i2c_cmsis.c"/>
+      </source>
+      <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="c_include">
         <files mask="fsl_i2c_cmsis.h"/>
       </source>
     </component>
@@ -2280,152 +2444,152 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_uart_cmsis.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.CAN_CMSISInclude.MKV31F25612" name="CAN_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_CAN.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.CAN_CMSISInclude.MKV31F25612" name="CAN_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_CAN.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_CAN.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.CAN_CMSISInclude.MKV31F51212" name="CAN_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_CAN.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.CAN_CMSISInclude.MKV31F51212" name="CAN_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_CAN.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_CAN.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" name="Common_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Common.h" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" name="Common_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Common.h" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_Common.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" name="Common_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Common.h" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" name="Common_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Common.h" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_Common.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612" name="Ethernet_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612" name="Ethernet_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_ETH.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212" name="Ethernet_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212" name="Ethernet_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_ETH.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.MKV31F25612" name="Ethernet_MAC_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_MAC.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.MKV31F25612" name="Ethernet_MAC_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_MAC.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_ETH_MAC.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.MKV31F51212" name="Ethernet_MAC_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_MAC.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.MKV31F51212" name="Ethernet_MAC_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_MAC.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_ETH_MAC.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.MKV31F25612" name="Ethernet_PHY_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_PHY.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.MKV31F25612" name="Ethernet_PHY_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_PHY.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_ETH_PHY.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.MKV31F51212" name="Ethernet_PHY_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_PHY.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.MKV31F51212" name="Ethernet_PHY_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_ETH_PHY.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_ETH_PHY.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Flash_CMSISInclude.MKV31F25612" name="Flash_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Flash.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Flash_CMSISInclude.MKV31F25612" name="Flash_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Flash.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_Flash.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.Flash_CMSISInclude.MKV31F51212" name="Flash_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Flash.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.Flash_CMSISInclude.MKV31F51212" name="Flash_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_Flash.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_Flash.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F25612" name="I2C_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_I2C.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F25612" name="I2C_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_I2C.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_I2C.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F51212" name="I2C_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_I2C.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F51212" name="I2C_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_I2C.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_I2C.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.MCI_CMSISInclude.MKV31F25612" name="MCI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_MCI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.MCI_CMSISInclude.MKV31F25612" name="MCI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_MCI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_MCI.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.MCI_CMSISInclude.MKV31F51212" name="MCI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_MCI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.MCI_CMSISInclude.MKV31F51212" name="MCI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_MCI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_MCI.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.NAND_CMSISInclude.MKV31F25612" name="NAND_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_NAND.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.NAND_CMSISInclude.MKV31F25612" name="NAND_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_NAND.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_NAND.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.NAND_CMSISInclude.MKV31F51212" name="NAND_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_NAND.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.NAND_CMSISInclude.MKV31F51212" name="NAND_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_NAND.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_NAND.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.SAI_CMSISInclude.MKV31F25612" name="SAI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SAI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.SAI_CMSISInclude.MKV31F25612" name="SAI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SAI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_SAI.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.SAI_CMSISInclude.MKV31F51212" name="SAI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SAI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.SAI_CMSISInclude.MKV31F51212" name="SAI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SAI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_SAI.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F25612" name="SPI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SPI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F25612" name="SPI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SPI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_SPI.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F51212" name="SPI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SPI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.SPI_CMSISInclude.MKV31F51212" name="SPI_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_SPI.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_SPI.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F25612" name="USART_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USART.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F25612" name="USART_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USART.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USART.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F51212" name="USART_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USART.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F51212" name="USART_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USART.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USART.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612" name="USB_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USB.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612" name="USB_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USB.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USB.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212" name="USB_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USB.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212" name="USB_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USB.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USB.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.MKV31F25612" name="USB_Device_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBD.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.MKV31F25612" name="USB_Device_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBD.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USBD.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.MKV31F51212" name="USB_Device_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBD.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.MKV31F51212" name="USB_Device_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBD.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USBD.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.MKV31F25612" name="USB_Host_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.MKV31F25612" name="USB_Host_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USBH.h"/>
       </source>
     </component>
-    <component id="platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.MKV31F51212" name="USB_Host_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
+    <component id="platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.MKV31F51212" name="USB_Host_CMSISInclude" type="CMSIS_driver" brief="CMSIS Driver_USBH.h" dependency="platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USB_CMSISInclude.MKV31F51212" devices="MKV31F512xxx12" version="5.0.1" user_visible="false">
       <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
         <files mask="Driver_USBH.h"/>
       </source>
@@ -2439,10 +2603,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="cmsis_armclang.h"/>
         <files mask="cmsis_compiler.h"/>
         <files mask="cmsis_gcc.h"/>
+        <files mask="cmsis_iccarm.h"/>
         <files mask="cmsis_version.h"/>
         <files mask="core_armv8mbl.h"/>
         <files mask="core_armv8mml.h"/>
         <files mask="mpu_armv7.h"/>
+        <files mask="mpu_armv8.h"/>
       </source>
     </component>
     <component id="platform.Include_common.MKV31F51212" name="Include_common" type="CMSIS_Include" devices="MKV31F512xxx12" version="5.0.1" user_visible="true">
@@ -2454,10 +2620,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="cmsis_armclang.h"/>
         <files mask="cmsis_compiler.h"/>
         <files mask="cmsis_gcc.h"/>
+        <files mask="cmsis_iccarm.h"/>
         <files mask="cmsis_version.h"/>
         <files mask="core_armv8mbl.h"/>
         <files mask="core_armv8mml.h"/>
         <files mask="mpu_armv7.h"/>
+        <files mask="mpu_armv8.h"/>
       </source>
     </component>
     <component id="platform.Include_core_cm4.MKV31F25612" name="Include_core_cm4" type="CMSIS_Include" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612" devices="MKV31F256xxx12" version="5.0.1" user_visible="true">
@@ -2486,7 +2654,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="startup_mkv31f51212.c"/>
       </source>
     </component>
-    <component id="RTE_Device.MKV31F25612" name="RTE_Device" type="project_template" category="Device/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
+    <component id="RTE_Device.MKV31F25612" name="RTE_Device" type="project_template" category="Device/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
       <source path="devices/MKV31F25612/template" target_path="board" type="c_include">
         <files mask="RTE_Device.h"/>
       </source>
@@ -2530,7 +2698,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="pin_mux.h"/>
       </source>
     </component>
-    <component id="project_template.MKV31F51212.MKV31F51212" name="MKV31F51212" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.devices.MKV31F51212_startup.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.flash.MKV31F51212 platform.drivers.gpio.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.port.MKV31F51212 platform.drivers.smc.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+    <component id="project_template.MKV31F51212.MKV31F51212" name="MKV31F51212" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.devices.MKV31F51212_startup.MKV31F51212 platform.drivers.adc16.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.flash.MKV31F51212 platform.drivers.ftm.MKV31F51212 platform.drivers.gpio.MKV31F51212 platform.drivers.i2c.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.port.MKV31F51212 platform.drivers.smc.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <source path="devices/MKV31F51212/project_template" type="src">
         <files mask="board.c"/>
         <files mask="clock_config.c"/>
@@ -2544,7 +2712,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="pin_mux.h"/>
       </source>
     </component>
-    <component id="project_template.frdmkv31f.MKV31F51212" name="frdmkv31f" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.devices.MKV31F51212_startup.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.flash.MKV31F51212 platform.drivers.gpio.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.port.MKV31F51212 platform.drivers.smc.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+    <component id="project_template.frdmkv31f.MKV31F51212" name="frdmkv31f" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.devices.MKV31F51212_startup.MKV31F51212 platform.drivers.adc16.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.flash.MKV31F51212 platform.drivers.ftm.MKV31F51212 platform.drivers.gpio.MKV31F51212 platform.drivers.i2c.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.port.MKV31F51212 platform.drivers.smc.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <source path="boards/frdmkv31f/project_template" type="src">
         <files mask="board.c"/>
         <files mask="clock_config.c"/>
@@ -2558,7 +2726,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="pin_mux.h"/>
       </source>
     </component>
-    <component id="project_template.twrkv31f120m.MKV31F51212" name="twrkv31f120m" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.devices.MKV31F51212_startup.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.flash.MKV31F51212 platform.drivers.gpio.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.port.MKV31F51212 platform.drivers.smc.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+    <component id="project_template.twrkv31f120m.MKV31F51212" name="twrkv31f120m" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.devices.MKV31F51212_startup.MKV31F51212 platform.drivers.adc16.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.flash.MKV31F51212 platform.drivers.ftm.MKV31F51212 platform.drivers.gpio.MKV31F51212 platform.drivers.i2c.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.port.MKV31F51212 platform.drivers.smc.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <source path="boards/twrkv31f120m/project_template" type="src">
         <files mask="board.c"/>
         <files mask="clock_config.c"/>

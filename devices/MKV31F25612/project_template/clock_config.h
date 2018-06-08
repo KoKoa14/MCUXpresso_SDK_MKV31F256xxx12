@@ -1,12 +1,9 @@
 /*
- * The Clear BSD License
- * Copyright (c) 2015, Freescale Semiconductor, Inc.
- * Copyright 2016-2017 NXP
+ * Copyright (c) 2017, NXP Semiconductor, Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
- * are permitted (subject to the limitations in the disclaimer below) provided
- * that the following conditions are met:
+ * are permitted provided that the following conditions are met:
  *
  * o Redistributions of source code must retain the above copyright notice, this list
  *   of conditions and the following disclaimer.
@@ -15,11 +12,10 @@
  *   list of conditions and the following disclaimer in the documentation and/or
  *   other materials provided with the distribution.
  *
- * o Neither the name of the copyright holder nor the names of its
+ * o Neither the name of NXP Semiconductor, Inc. nor the names of its
  *   contributors may be used to endorse or promote products derived from this
  *   software without specific prior written permission.
  *
- * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS LICENSE.
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -32,104 +28,29 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @file    clock_config.h
+ * @brief   Board clocks header file.
+ */
+ 
+/* This is an empty template for board specific configuration.*/
+
 #ifndef _CLOCK_CONFIG_H_
 #define _CLOCK_CONFIG_H_
 
-#include "fsl_common.h"
-
-/*******************************************************************************
- * Definitions
-******************************************************************************/
-
-/*******************************************************************************
- ************************ BOARD_InitBootClocks function ************************
- ******************************************************************************/
-
 #if defined(__cplusplus)
 extern "C" {
-#endif /* __cplusplus*/
+#endif /* __cplusplus */
 
-/*!
- * @brief This function executes default configuration of clocks.
- *
+/**
+ * @brief 	Initialize board clocks.
  */
 void BOARD_InitBootClocks(void);
 
 #if defined(__cplusplus)
 }
-#endif /* __cplusplus*/
-
-#define BOARD_XTAL0_CLK_HZ                         50000000U  /*!< Board xtal0 frequency in Hz */
-
-/*******************************************************************************
- ********************** Configuration BOARD_BootClockRUN ***********************
- ******************************************************************************/
-/*******************************************************************************
- * Definitions for BOARD_BootClockRUN configuration
- ******************************************************************************/
-#define BOARD_BOOTCLOCKRUN_CORE_CLOCK             120000000U  /*!< Core clock frequency: 120000000Hz */
-
-/*! @brief MCG set for BOARD_BootClockRUN configuration.
- */
-extern const mcg_config_t mcgConfig_BOARD_BootClockRUN;
-/*! @brief SIM module set for BOARD_BootClockRUN configuration.
- */
-extern const sim_clock_config_t simConfig_BOARD_BootClockRUN;
-/*! @brief OSC set for BOARD_BootClockRUN configuration.
- */
-extern const osc_config_t oscConfig_BOARD_BootClockRUN;
-
-/*******************************************************************************
- * API for BOARD_BootClockRUN configuration
- ******************************************************************************/
-#if defined(__cplusplus)
-extern "C" {
-#endif /* __cplusplus*/
-
-/*!
- * @brief This function executes configuration of clocks.
- *
- */
-void BOARD_BootClockRUN(void);
-
-#if defined(__cplusplus)
-}
-#endif /* __cplusplus*/
-
-/*******************************************************************************
- ********************* Configuration BOARD_BootClockVLPR ***********************
- ******************************************************************************/
-/*******************************************************************************
- * Definitions for BOARD_BootClockVLPR configuration
- ******************************************************************************/
-#define BOARD_BOOTCLOCKVLPR_CORE_CLOCK              4000000U  /*!< Core clock frequency: 4000000Hz */
-
-/*! @brief MCG set for BOARD_BootClockVLPR configuration.
- */
-extern const mcg_config_t mcgConfig_BOARD_BootClockVLPR;
-/*! @brief SIM module set for BOARD_BootClockVLPR configuration.
- */
-extern const sim_clock_config_t simConfig_BOARD_BootClockVLPR;
-/*! @brief OSC set for BOARD_BootClockVLPR configuration.
- */
-extern const osc_config_t oscConfig_BOARD_BootClockVLPR;
-
-/*******************************************************************************
- * API for BOARD_BootClockVLPR configuration
- ******************************************************************************/
-#if defined(__cplusplus)
-extern "C" {
-#endif /* __cplusplus*/
-
-/*!
- * @brief This function executes configuration of clocks.
- *
- */
-void BOARD_BootClockVLPR(void);
-
-#if defined(__cplusplus)
-}
-#endif /* __cplusplus*/
+#endif /* __cplusplus */
 
 #endif /* _CLOCK_CONFIG_H_ */
+
 
