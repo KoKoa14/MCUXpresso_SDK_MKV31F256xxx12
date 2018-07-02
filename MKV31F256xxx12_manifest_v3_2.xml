@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.2.xsd" format_version="3.2" api_version="2.0.0" name="SDK version 2.4.0 package for MKV31F256xxx12 device" brief="This is SDK version 2.4.0 manifest file. It describes the content of the SDK version 2.4.0 package for MKV31F256xxx12 device and additional settings for tools that support SDK version 2.4.0" id="SDK_2.x_MKV31F256xxx12" configuration="99d3807f48e80e679abc6efea919a812">
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.2.xsd" format_version="3.2" api_version="2.0.0" name="SDK version 2.4.1 package for MKV31F256xxx12 device" brief="This is SDK version 2.4.1 manifest file. It describes the content of the SDK version 2.4.1 package for MKV31F256xxx12 device and additional settings for tools that support SDK version 2.4.1" id="SDK_2.x_MKV31F256xxx12" configuration="6d22830e9276ccdb12d4b19e7f6ead53">
   <defines>
     <define name="CPU_$|package|" value=""/>
     <define name="CPU_$|package|_$|core|" value=""/>
@@ -8,83 +8,13 @@
     <definition extID="hvpkv31f120m"/>
     <definition extID="middleware.freertos"/>
   </externalDefinitions>
-  <ksdk id="KSDK240" name="KSDK240" version="2.4.0"/>
+  <ksdk id="KSDK241" name="KSDK241" version="2.4.1"/>
   <compilers>
-    <compiler id="compiler_gcc" type="gcc" name="gcc"/>
+    <compiler id="compiler_iar" type="iar" name="iar"/>
   </compilers>
-  <toolchainSettings>
-    <toolchainSetting id="com.nxp.mcuxpresso" name="mcuxpresso" full_name="MCUXpresso IDE" version="1.0.0" compiler="compiler_gcc" toolchain="mcuxpresso">
-      <option id="gnu.cpp.compiler.option.optimization.flags" type="string" user_name="" variants="">
-        <value>-fno-common</value>
-      </option>
-      <option id="gnu.c.compiler.option.optimization.flags" type="string" user_name="" variants="">
-        <value>-fno-common</value>
-      </option>
-      <option id="gnu.cpp.link.option.nostdlibs" type="boolean" user_name="" variants="">
-        <value>true</value>
-      </option>
-      <option id="com.crt.advproject.link.cpp.flashconfigenable" type="boolean" user_name="" variants="">
-        <value>true</value>
-      </option>
-      <option id="com.crt.advproject.link.flashconfigenable" type="boolean" user_name="" variants="">
-        <value>true</value>
-      </option>
-      <option id="gnu.c.link.option.nostdlibs" type="boolean" user_name="" variants="">
-        <value>true</value>
-      </option>
-    </toolchainSetting>
-  </toolchainSettings>
+  <toolchainSettings/>
   <toolchains>
-    <toolchain id="mcuxpresso" name="MCUXpresso_IDE" full_name="MCUXpresso IDE" type="mcuxpresso" compiler="compiler_gcc" version="10.2.0" vendor="NXP Semiconductors" vendor_url="http://www.nxp.com">
-      <debug>
-        <debug_configuration id="com.crt.advproject.config.exe.debug" name="Debug Configuration" probe="LinkServer">
-          <scripts>
-            <script type="init" silent="false" emulators="${gdb.stub} -mi -info-emu">
-              <script>
-set remotetimeout 60000
-##target_extended_remote##
-set mem inaccessible-by-default ${mem.access}
-mon ondisconnect ${ondisconnect}
-set arm force-mode thumb
-${load}
-        </script>
-            </script>
-            <script type="run" silent="false" emulators="${gdb.stub} -mi -info-emu">
-              <script>
-${run}
-        </script>
-            </script>
-          </scripts>
-          <params>
-            <params id="vector.catch.debug.mcuxpresso" name="vector.catch" value="false"/>
-            <params id="internal.cache.debug.mcuxpresso" name="internal.cache" value="Disable"/>
-          </params>
-        </debug_configuration>
-        <debug_configuration id="com.crt.advproject.config.exe.release" name="Release Configuration" probe="LinkServer">
-          <scripts>
-            <script type="init" silent="false" emulators="${gdb.stub} -mi -info-emu">
-              <script>
-set remotetimeout 60000
-##target_extended_remote##
-set mem inaccessible-by-default ${mem.access}
-mon ondisconnect ${ondisconnect}
-set arm force-mode thumb
-${load}
-        </script>
-            </script>
-            <script type="run" silent="false" emulators="${gdb.stub} -mi -info-emu">
-              <script>
-${run}
-        </script>
-            </script>
-          </scripts>
-          <params>
-            <params id="vector.catch.release.mcuxpresso" name="vector.catch" value="false"/>
-            <params id="internal.cache.release.mcuxpresso" name="internal.cache" value="Disable"/>
-          </params>
-        </debug_configuration>
-      </debug>
-    </toolchain>
+    <toolchain id="iar" name="IAR_Embedded_Workbench_for_ARM" full_name="IAR Embedded Workbench for ARM" type="iar" compiler="compiler_iar" version="8.22.2" vendor="IAR Systems" vendor_url="http://www.iar.com"/>
   </toolchains>
   <boards>
     <board id="twrkv31f120m" name="TWR-KV31F120M" package="MKV31F512VLL12" version="1.0.0" href="http://www.nxp.com/twr-kv31f120m">
@@ -108,457 +38,457 @@ The TWR-KV31F120M is supported by a range of NXP® and third-party development s
         </metadata>
       </metadataSet>
       <examples>
-        <example id="twrkv31f120m_cmsis_dspi_edma_b2b_transfer_master" name="cmsis_dspi_edma_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_dspi_edma_b2b_transfer_master" name="cmsis_dspi_edma_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_b2b_transfer/master" type="xml">
             <files mask="cmsis_dspi_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_dspi_edma_b2b_transfer_slave" name="cmsis_dspi_edma_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_dspi_edma_b2b_transfer_slave" name="cmsis_dspi_edma_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/edma_b2b_transfer/slave" type="xml">
             <files mask="cmsis_dspi_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_dspi_int_b2b_transfer_master" name="cmsis_dspi_int_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_dspi_int_b2b_transfer_master" name="cmsis_dspi_int_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/master" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_dspi_int_b2b_transfer_slave" name="cmsis_dspi_int_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_dspi_int_b2b_transfer_slave" name="cmsis_dspi_int_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/dspi/int_b2b_transfer/slave" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_i2c_edma_b2b_transfer_master" name="cmsis_i2c_edma_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_i2c_edma_b2b_transfer_master" name="cmsis_i2c_edma_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/master" type="xml">
             <files mask="cmsis_i2c_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_i2c_edma_b2b_transfer_slave" name="cmsis_i2c_edma_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_i2c_edma_b2b_transfer_slave" name="cmsis_i2c_edma_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/i2c/edma_b2b_transfer/slave" type="xml">
             <files mask="cmsis_i2c_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_i2c_int_b2b_transfer_master" name="cmsis_i2c_int_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/int_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_i2c_int_b2b_transfer_master" name="cmsis_i2c_int_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/int_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/i2c/int_b2b_transfer/master" type="xml">
             <files mask="cmsis_i2c_int_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_i2c_int_b2b_transfer_slave" name="cmsis_i2c_int_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/int_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_i2c_int_b2b_transfer_slave" name="cmsis_i2c_int_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/int_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/i2c/int_b2b_transfer/slave" type="xml">
             <files mask="cmsis_i2c_int_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_i2c_read_accel_value_transfer" name="cmsis_i2c_read_accel_value_transfer" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/read_accel_value_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_i2c_read_accel_value_transfer" name="cmsis_i2c_read_accel_value_transfer" category="cmsis_driver_examples/i2c" path="boards/twrkv31f120m/cmsis_driver_examples/i2c/read_accel_value_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/i2c/read_accel_value_transfer" type="xml">
             <files mask="cmsis_i2c_read_accel_value_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_lpuart_edma_transfer" name="cmsis_lpuart_edma_transfer" category="cmsis_driver_examples/lpuart" path="boards/twrkv31f120m/cmsis_driver_examples/lpuart/edma_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_lpuart_edma_transfer" name="cmsis_lpuart_edma_transfer" category="cmsis_driver_examples/lpuart" path="boards/twrkv31f120m/cmsis_driver_examples/lpuart/edma_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/lpuart/edma_transfer" type="xml">
             <files mask="cmsis_lpuart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_lpuart_interrupt_transfer" name="cmsis_lpuart_interrupt_transfer" category="cmsis_driver_examples/lpuart" path="boards/twrkv31f120m/cmsis_driver_examples/lpuart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_lpuart_interrupt_transfer" name="cmsis_lpuart_interrupt_transfer" category="cmsis_driver_examples/lpuart" path="boards/twrkv31f120m/cmsis_driver_examples/lpuart/interrupt_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/lpuart/interrupt_transfer" type="xml">
             <files mask="cmsis_lpuart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_uart_edma_transfer" name="cmsis_uart_edma_transfer" category="cmsis_driver_examples/uart" path="boards/twrkv31f120m/cmsis_driver_examples/uart/edma_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_uart_edma_transfer" name="cmsis_uart_edma_transfer" category="cmsis_driver_examples/uart" path="boards/twrkv31f120m/cmsis_driver_examples/uart/edma_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/uart/edma_transfer" type="xml">
             <files mask="cmsis_uart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmsis_uart_interrupt_transfer" name="cmsis_uart_interrupt_transfer" category="cmsis_driver_examples/uart" path="boards/twrkv31f120m/cmsis_driver_examples/uart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmsis_uart_interrupt_transfer" name="cmsis_uart_interrupt_transfer" category="cmsis_driver_examples/uart" path="boards/twrkv31f120m/cmsis_driver_examples/uart/interrupt_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/cmsis_driver_examples/uart/interrupt_transfer" type="xml">
             <files mask="cmsis_uart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_low_power" name="adc16_low_power" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_low_power" name="adc16_low_power" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/adc16_low_power" type="xml">
             <files mask="adc16_low_power.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_low_power_async_edma" name="adc16_low_power_async_edma" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power_async_edma" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_low_power_async_edma" name="adc16_low_power_async_edma" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power_async_edma" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/adc16_low_power_async_edma" type="xml">
             <files mask="adc16_low_power_async_edma.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_low_power_peripheral" name="adc16_low_power_peripheral" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power_peripheral" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_low_power_peripheral" name="adc16_low_power_peripheral" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_low_power_peripheral" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/adc16_low_power_peripheral" type="xml">
             <files mask="adc16_low_power_peripheral.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_potentiometer" name="adc16_potentiometer" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_potentiometer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_potentiometer" name="adc16_potentiometer" category="demo_apps" path="boards/twrkv31f120m/demo_apps/adc16_potentiometer" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/adc16_potentiometer" type="xml">
             <files mask="adc16_potentiometer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dac_adc" name="dac_adc" category="demo_apps" path="boards/twrkv31f120m/demo_apps/dac_adc" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dac_adc" name="dac_adc" category="demo_apps" path="boards/twrkv31f120m/demo_apps/dac_adc" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/dac_adc" type="xml">
             <files mask="dac_adc.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_quad_decoder" name="ftm_quad_decoder" category="demo_apps" path="boards/twrkv31f120m/demo_apps/ftm_quad_decoder" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_quad_decoder" name="ftm_quad_decoder" category="demo_apps" path="boards/twrkv31f120m/demo_apps/ftm_quad_decoder" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/ftm_quad_decoder" type="xml">
             <files mask="ftm_quad_decoder.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_hello_world" name="hello_world" category="demo_apps" path="boards/twrkv31f120m/demo_apps/hello_world" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_hello_world" name="hello_world" category="demo_apps" path="boards/twrkv31f120m/demo_apps/hello_world" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/hello_world" type="xml">
             <files mask="hello_world.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_led_blinky" name="led_blinky" category="demo_apps" path="boards/twrkv31f120m/demo_apps/led_blinky" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_led_blinky" name="led_blinky" category="demo_apps" path="boards/twrkv31f120m/demo_apps/led_blinky" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/led_blinky" type="xml">
             <files mask="led_blinky.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_power_manager" name="power_manager" category="demo_apps" path="boards/twrkv31f120m/demo_apps/power_manager" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_power_manager" name="power_manager" category="demo_apps" path="boards/twrkv31f120m/demo_apps/power_manager" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/power_manager" type="xml">
             <files mask="power_manager.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_power_mode_switch" name="power_mode_switch" category="demo_apps" path="boards/twrkv31f120m/demo_apps/power_mode_switch" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_power_mode_switch" name="power_mode_switch" category="demo_apps" path="boards/twrkv31f120m/demo_apps/power_mode_switch" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/power_mode_switch" type="xml">
             <files mask="power_mode_switch.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_shell" name="shell" category="demo_apps" path="boards/twrkv31f120m/demo_apps/shell" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_shell" name="shell" category="demo_apps" path="boards/twrkv31f120m/demo_apps/shell" toolchain="iar">
           <external path="boards/twrkv31f120m/demo_apps/shell" type="xml">
             <files mask="shell.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_continuous_edma" name="adc16_continuous_edma" category="driver_examples/adc16" path="boards/twrkv31f120m/driver_examples/adc16/continuous_edma" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_continuous_edma" name="adc16_continuous_edma" category="driver_examples/adc16" path="boards/twrkv31f120m/driver_examples/adc16/continuous_edma" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/adc16/continuous_edma" type="xml">
             <files mask="adc16_continuous_edma.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_interrupt" name="adc16_interrupt" category="driver_examples/adc16" path="boards/twrkv31f120m/driver_examples/adc16/interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_interrupt" name="adc16_interrupt" category="driver_examples/adc16" path="boards/twrkv31f120m/driver_examples/adc16/interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/adc16/interrupt" type="xml">
             <files mask="adc16_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_adc16_polling" name="adc16_polling" category="driver_examples/adc16" path="boards/twrkv31f120m/driver_examples/adc16/polling" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_adc16_polling" name="adc16_polling" category="driver_examples/adc16" path="boards/twrkv31f120m/driver_examples/adc16/polling" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/adc16/polling" type="xml">
             <files mask="adc16_polling.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmp_interrupt" name="cmp_interrupt" category="driver_examples/cmp" path="boards/twrkv31f120m/driver_examples/cmp/interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmp_interrupt" name="cmp_interrupt" category="driver_examples/cmp" path="boards/twrkv31f120m/driver_examples/cmp/interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/cmp/interrupt" type="xml">
             <files mask="cmp_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_cmp_polling" name="cmp_polling" category="driver_examples/cmp" path="boards/twrkv31f120m/driver_examples/cmp/polling" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_cmp_polling" name="cmp_polling" category="driver_examples/cmp" path="boards/twrkv31f120m/driver_examples/cmp/polling" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/cmp/polling" type="xml">
             <files mask="cmp_polling.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_crc" name="crc" category="driver_examples" path="boards/twrkv31f120m/driver_examples/crc" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_crc" name="crc" category="driver_examples" path="boards/twrkv31f120m/driver_examples/crc" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/crc" type="xml">
             <files mask="crc.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dac_basic" name="dac_basic" category="driver_examples/dac" path="boards/twrkv31f120m/driver_examples/dac/basic" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dac_basic" name="dac_basic" category="driver_examples/dac" path="boards/twrkv31f120m/driver_examples/dac/basic" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dac/basic" type="xml">
             <files mask="dac_basic.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dac_buffer_interrupt" name="dac_buffer_interrupt" category="driver_examples/dac" path="boards/twrkv31f120m/driver_examples/dac/buffer_interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dac_buffer_interrupt" name="dac_buffer_interrupt" category="driver_examples/dac" path="boards/twrkv31f120m/driver_examples/dac/buffer_interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dac/buffer_interrupt" type="xml">
             <files mask="dac_buffer_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dac_continuous_pdb_edma" name="dac_continuous_pdb_edma" category="driver_examples/dac" path="boards/twrkv31f120m/driver_examples/dac/continuous_pdb_edma" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dac_continuous_pdb_edma" name="dac_continuous_pdb_edma" category="driver_examples/dac" path="boards/twrkv31f120m/driver_examples/dac/continuous_pdb_edma" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dac/continuous_pdb_edma" type="xml">
             <files mask="dac_continuous_pdb_edma.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_edma_b2b_transfer_master" name="dspi_edma_b2b_transfer_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_edma_b2b_transfer_master" name="dspi_edma_b2b_transfer_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/edma_b2b_transfer/master" type="xml">
             <files mask="dspi_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_edma_b2b_transfer_slave" name="dspi_edma_b2b_transfer_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_edma_b2b_transfer_slave" name="dspi_edma_b2b_transfer_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/edma_b2b_transfer/slave" type="xml">
             <files mask="dspi_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_half_duplex_edma_master" name="dspi_half_duplex_edma_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/edma/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_half_duplex_edma_master" name="dspi_half_duplex_edma_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/edma/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/edma/master" type="xml">
             <files mask="dspi_half_duplex_edma_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_half_duplex_edma_slave" name="dspi_half_duplex_edma_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/edma/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_half_duplex_edma_slave" name="dspi_half_duplex_edma_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/edma/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/edma/slave" type="xml">
             <files mask="dspi_half_duplex_edma_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_half_duplex_int_master" name="dspi_half_duplex_int_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/int/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_half_duplex_int_master" name="dspi_half_duplex_int_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/int/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/int/master" type="xml">
             <files mask="dspi_half_duplex_int_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_half_duplex_int_slave" name="dspi_half_duplex_int_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/int/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_half_duplex_int_slave" name="dspi_half_duplex_int_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/int/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/int/slave" type="xml">
             <files mask="dspi_half_duplex_int_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_half_duplex_polling_master" name="dspi_half_duplex_polling_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/polling/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_half_duplex_polling_master" name="dspi_half_duplex_polling_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/polling/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/polling/master" type="xml">
             <files mask="dspi_half_duplex_polling_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_half_duplex_polling_slave" name="dspi_half_duplex_polling_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/polling/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_half_duplex_polling_slave" name="dspi_half_duplex_polling_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/polling/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/half_duplex_transfer/polling/slave" type="xml">
             <files mask="dspi_half_duplex_polling_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_interrupt" name="dspi_interrupt" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_interrupt" name="dspi_interrupt" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/interrupt" type="xml">
             <files mask="dspi_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_interrupt_b2b_master" name="dspi_interrupt_b2b_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_interrupt_b2b_master" name="dspi_interrupt_b2b_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b/master" type="xml">
             <files mask="dspi_interrupt_b2b_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_interrupt_b2b_slave" name="dspi_interrupt_b2b_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_interrupt_b2b_slave" name="dspi_interrupt_b2b_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b/slave" type="xml">
             <files mask="dspi_interrupt_b2b_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_interrupt_b2b_transfer_master" name="dspi_interrupt_b2b_transfer_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_interrupt_b2b_transfer_master" name="dspi_interrupt_b2b_transfer_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b_transfer/master" type="xml">
             <files mask="dspi_interrupt_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_interrupt_b2b_transfer_slave" name="dspi_interrupt_b2b_transfer_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_interrupt_b2b_transfer_slave" name="dspi_interrupt_b2b_transfer_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/interrupt_b2b_transfer/slave" type="xml">
             <files mask="dspi_interrupt_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_polling_b2b_transfer_master" name="dspi_polling_b2b_transfer_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/polling_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_polling_b2b_transfer_master" name="dspi_polling_b2b_transfer_master" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/polling_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/polling_b2b_transfer/master" type="xml">
             <files mask="dspi_polling_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_dspi_polling_b2b_transfer_slave" name="dspi_polling_b2b_transfer_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/polling_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_dspi_polling_b2b_transfer_slave" name="dspi_polling_b2b_transfer_slave" category="driver_examples/dspi" path="boards/twrkv31f120m/driver_examples/dspi/polling_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/dspi/polling_b2b_transfer/slave" type="xml">
             <files mask="dspi_polling_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_edma_memory_to_memory" name="edma_memory_to_memory" category="driver_examples/edma" path="boards/twrkv31f120m/driver_examples/edma/memory_to_memory" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_edma_memory_to_memory" name="edma_memory_to_memory" category="driver_examples/edma" path="boards/twrkv31f120m/driver_examples/edma/memory_to_memory" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/edma/memory_to_memory" type="xml">
             <files mask="edma_memory_to_memory.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_edma_scatter_gather" name="edma_scatter_gather" category="driver_examples/edma" path="boards/twrkv31f120m/driver_examples/edma/scatter_gather" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_edma_scatter_gather" name="edma_scatter_gather" category="driver_examples/edma" path="boards/twrkv31f120m/driver_examples/edma/scatter_gather" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/edma/scatter_gather" type="xml">
             <files mask="edma_scatter_gather.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ewm" name="ewm" category="driver_examples" path="boards/twrkv31f120m/driver_examples/ewm" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ewm" name="ewm" category="driver_examples" path="boards/twrkv31f120m/driver_examples/ewm" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ewm" type="xml">
             <files mask="ewm.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_pflash" name="pflash" category="driver_examples/flash" path="boards/twrkv31f120m/driver_examples/flash/pflash" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_pflash" name="pflash" category="driver_examples/flash" path="boards/twrkv31f120m/driver_examples/flash/pflash" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/flash/pflash" type="xml">
             <files mask="pflash.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_combine_pwm" name="ftm_combine_pwm" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/combine_pwm" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_combine_pwm" name="ftm_combine_pwm" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/combine_pwm" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/combine_pwm" type="xml">
             <files mask="ftm_combine_pwm.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_dual_edge_capture" name="ftm_dual_edge_capture" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/dual_edge_capture" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_dual_edge_capture" name="ftm_dual_edge_capture" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/dual_edge_capture" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/dual_edge_capture" type="xml">
             <files mask="ftm_dual_edge_capture.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_input_capture" name="ftm_input_capture" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/input_capture" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_input_capture" name="ftm_input_capture" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/input_capture" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/input_capture" type="xml">
             <files mask="ftm_input_capture.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_output_compare" name="ftm_output_compare" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/output_compare" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_output_compare" name="ftm_output_compare" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/output_compare" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/output_compare" type="xml">
             <files mask="ftm_output_compare.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_pwm_twochannel" name="ftm_pwm_twochannel" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/pwm_twochannel" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_pwm_twochannel" name="ftm_pwm_twochannel" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/pwm_twochannel" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/pwm_twochannel" type="xml">
             <files mask="ftm_pwm_twochannel.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_simple_pwm" name="ftm_simple_pwm" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/simple_pwm" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_simple_pwm" name="ftm_simple_pwm" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/simple_pwm" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/simple_pwm" type="xml">
             <files mask="ftm_simple_pwm.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_ftm_timer" name="ftm_timer" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/timer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_ftm_timer" name="ftm_timer" category="driver_examples/ftm" path="boards/twrkv31f120m/driver_examples/ftm/timer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/ftm/timer" type="xml">
             <files mask="ftm_timer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_gpio_input_interrupt" name="gpio_input_interrupt" category="driver_examples/gpio" path="boards/twrkv31f120m/driver_examples/gpio/input_interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_gpio_input_interrupt" name="gpio_input_interrupt" category="driver_examples/gpio" path="boards/twrkv31f120m/driver_examples/gpio/input_interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/gpio/input_interrupt" type="xml">
             <files mask="gpio_input_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_gpio_led_output" name="gpio_led_output" category="driver_examples/gpio" path="boards/twrkv31f120m/driver_examples/gpio/led_output" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_gpio_led_output" name="gpio_led_output" category="driver_examples/gpio" path="boards/twrkv31f120m/driver_examples/gpio/led_output" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/gpio/led_output" type="xml">
             <files mask="gpio_led_output.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_edma_b2b_transfer_master" name="i2c_edma_b2b_transfer_master" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_edma_b2b_transfer_master" name="i2c_edma_b2b_transfer_master" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/edma_b2b_transfer/master" type="xml">
             <files mask="i2c_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_edma_b2b_transfer_slave" name="i2c_edma_b2b_transfer_slave" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_edma_b2b_transfer_slave" name="i2c_edma_b2b_transfer_slave" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/edma_b2b_transfer/slave" type="xml">
             <files mask="i2c_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_interrupt" name="i2c_interrupt" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_interrupt" name="i2c_interrupt" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/interrupt" type="xml">
             <files mask="i2c_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_interrupt_b2b_transfer_master" name="i2c_interrupt_b2b_transfer_master" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/interrupt_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_interrupt_b2b_transfer_master" name="i2c_interrupt_b2b_transfer_master" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/interrupt_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/interrupt_b2b_transfer/master" type="xml">
             <files mask="i2c_interrupt_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_interrupt_b2b_transfer_slave" name="i2c_interrupt_b2b_transfer_slave" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/interrupt_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_interrupt_b2b_transfer_slave" name="i2c_interrupt_b2b_transfer_slave" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/interrupt_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/interrupt_b2b_transfer/slave" type="xml">
             <files mask="i2c_interrupt_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_polling_b2b_transfer_master" name="i2c_polling_b2b_transfer_master" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/polling_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_polling_b2b_transfer_master" name="i2c_polling_b2b_transfer_master" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/polling_b2b_transfer/master" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/polling_b2b_transfer/master" type="xml">
             <files mask="i2c_polling_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_polling_b2b_transfer_slave" name="i2c_polling_b2b_transfer_slave" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/polling_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_polling_b2b_transfer_slave" name="i2c_polling_b2b_transfer_slave" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/polling_b2b_transfer/slave" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/polling_b2b_transfer/slave" type="xml">
             <files mask="i2c_polling_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_i2c_read_accel_value_transfer" name="i2c_read_accel_value_transfer" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/read_accel_value_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_i2c_read_accel_value_transfer" name="i2c_read_accel_value_transfer" category="driver_examples/i2c" path="boards/twrkv31f120m/driver_examples/i2c/read_accel_value_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/i2c/read_accel_value_transfer" type="xml">
             <files mask="i2c_read_accel_value_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_lptmr" name="lptmr" category="driver_examples" path="boards/twrkv31f120m/driver_examples/lptmr" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_lptmr" name="lptmr" category="driver_examples" path="boards/twrkv31f120m/driver_examples/lptmr" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/lptmr" type="xml">
             <files mask="lptmr.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_lpuart_edma_transfer" name="lpuart_edma_transfer" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/edma_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_lpuart_edma_transfer" name="lpuart_edma_transfer" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/edma_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/lpuart/edma_transfer" type="xml">
             <files mask="lpuart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_lpuart_interrupt" name="lpuart_interrupt" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_lpuart_interrupt" name="lpuart_interrupt" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/lpuart/interrupt" type="xml">
             <files mask="lpuart_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_lpuart_interrupt_rb_transfer" name="lpuart_interrupt_rb_transfer" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/interrupt_rb_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_lpuart_interrupt_rb_transfer" name="lpuart_interrupt_rb_transfer" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/interrupt_rb_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/lpuart/interrupt_rb_transfer" type="xml">
             <files mask="lpuart_interrupt_rb_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_lpuart_interrupt_transfer" name="lpuart_interrupt_transfer" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_lpuart_interrupt_transfer" name="lpuart_interrupt_transfer" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/interrupt_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/lpuart/interrupt_transfer" type="xml">
             <files mask="lpuart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_lpuart_polling" name="lpuart_polling" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/polling" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_lpuart_polling" name="lpuart_polling" category="driver_examples/lpuart" path="boards/twrkv31f120m/driver_examples/lpuart/polling" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/lpuart/polling" type="xml">
             <files mask="lpuart_polling.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_mcg_fee_blpe" name="mcg_fee_blpe" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/fee_blpe" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_mcg_fee_blpe" name="mcg_fee_blpe" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/fee_blpe" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/mcg/fee_blpe" type="xml">
             <files mask="mcg_fee_blpe.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_mcg_fee_blpi" name="mcg_fee_blpi" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/fee_blpi" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_mcg_fee_blpi" name="mcg_fee_blpi" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/fee_blpi" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/mcg/fee_blpi" type="xml">
             <files mask="mcg_fee_blpi.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_mcg_fei_blpi" name="mcg_fei_blpi" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/fei_blpi" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_mcg_fei_blpi" name="mcg_fei_blpi" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/fei_blpi" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/mcg/fei_blpi" type="xml">
             <files mask="mcg_fei_blpi.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_mcg_pee_blpe" name="mcg_pee_blpe" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/pee_blpe" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_mcg_pee_blpe" name="mcg_pee_blpe" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/pee_blpe" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/mcg/pee_blpe" type="xml">
             <files mask="mcg_pee_blpe.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_mcg_pee_blpi" name="mcg_pee_blpi" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/pee_blpi" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_mcg_pee_blpi" name="mcg_pee_blpi" category="driver_examples/mcg" path="boards/twrkv31f120m/driver_examples/mcg/pee_blpi" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/mcg/pee_blpi" type="xml">
             <files mask="mcg_pee_blpi.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_pdb_adc16_trigger" name="pdb_adc16_trigger" category="driver_examples/pdb" path="boards/twrkv31f120m/driver_examples/pdb/adc16_trigger" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_pdb_adc16_trigger" name="pdb_adc16_trigger" category="driver_examples/pdb" path="boards/twrkv31f120m/driver_examples/pdb/adc16_trigger" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/pdb/adc16_trigger" type="xml">
             <files mask="pdb_adc16_trigger.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_pdb_dac_trigger" name="pdb_dac_trigger" category="driver_examples/pdb" path="boards/twrkv31f120m/driver_examples/pdb/dac_trigger" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_pdb_dac_trigger" name="pdb_dac_trigger" category="driver_examples/pdb" path="boards/twrkv31f120m/driver_examples/pdb/dac_trigger" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/pdb/dac_trigger" type="xml">
             <files mask="pdb_dac_trigger.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_pdb_delay_interrupt" name="pdb_delay_interrupt" category="driver_examples/pdb" path="boards/twrkv31f120m/driver_examples/pdb/delay_interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_pdb_delay_interrupt" name="pdb_delay_interrupt" category="driver_examples/pdb" path="boards/twrkv31f120m/driver_examples/pdb/delay_interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/pdb/delay_interrupt" type="xml">
             <files mask="pdb_delay_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_pit" name="pit" category="driver_examples" path="boards/twrkv31f120m/driver_examples/pit" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_pit" name="pit" category="driver_examples" path="boards/twrkv31f120m/driver_examples/pit" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/pit" type="xml">
             <files mask="pit.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_rnga_random" name="rnga_random" category="driver_examples/rnga" path="boards/twrkv31f120m/driver_examples/rnga/random" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_rnga_random" name="rnga_random" category="driver_examples/rnga" path="boards/twrkv31f120m/driver_examples/rnga/random" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/rnga/random" type="xml">
             <files mask="rnga_random.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_uart_edma_transfer" name="uart_edma_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/edma_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_uart_edma_transfer" name="uart_edma_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/edma_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/uart/edma_transfer" type="xml">
             <files mask="uart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_uart_interrupt" name="uart_interrupt" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/interrupt" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_uart_interrupt" name="uart_interrupt" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/interrupt" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/uart/interrupt" type="xml">
             <files mask="uart_interrupt.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_uart_interrupt_rb_transfer" name="uart_interrupt_rb_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/interrupt_rb_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_uart_interrupt_rb_transfer" name="uart_interrupt_rb_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/interrupt_rb_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/uart/interrupt_rb_transfer" type="xml">
             <files mask="uart_interrupt_rb_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_uart_interrupt_transfer" name="uart_interrupt_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_uart_interrupt_transfer" name="uart_interrupt_transfer" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/interrupt_transfer" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/uart/interrupt_transfer" type="xml">
             <files mask="uart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_uart_polling" name="uart_polling" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/polling" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_uart_polling" name="uart_polling" category="driver_examples/uart" path="boards/twrkv31f120m/driver_examples/uart/polling" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/uart/polling" type="xml">
             <files mask="uart_polling.xml"/>
           </external>
         </example>
-        <example id="twrkv31f120m_wdog" name="wdog" category="driver_examples" path="boards/twrkv31f120m/driver_examples/wdog" toolchain="mcuxpresso">
+        <example id="twrkv31f120m_wdog" name="wdog" category="driver_examples" path="boards/twrkv31f120m/driver_examples/wdog" toolchain="iar">
           <external path="boards/twrkv31f120m/driver_examples/wdog" type="xml">
             <files mask="wdog.xml"/>
           </external>
@@ -586,467 +516,467 @@ The FRDM-KV31F is the first device in the Kinetis V portfolio to be enabled with
         </metadata>
       </metadataSet>
       <examples>
-        <example id="frdmkv31f_cmsis_dspi_edma_b2b_transfer_master" name="cmsis_dspi_edma_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_dspi_edma_b2b_transfer_master" name="cmsis_dspi_edma_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_b2b_transfer/master" type="xml">
             <files mask="cmsis_dspi_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_dspi_edma_b2b_transfer_slave" name="cmsis_dspi_edma_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_dspi_edma_b2b_transfer_slave" name="cmsis_dspi_edma_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/edma_b2b_transfer/slave" type="xml">
             <files mask="cmsis_dspi_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_dspi_int_b2b_transfer_master" name="cmsis_dspi_int_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_dspi_int_b2b_transfer_master" name="cmsis_dspi_int_b2b_transfer_master" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/master" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_dspi_int_b2b_transfer_slave" name="cmsis_dspi_int_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_dspi_int_b2b_transfer_slave" name="cmsis_dspi_int_b2b_transfer_slave" category="cmsis_driver_examples/dspi" path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/dspi/int_b2b_transfer/slave" type="xml">
             <files mask="cmsis_dspi_int_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_i2c_edma_b2b_transfer_master" name="cmsis_i2c_edma_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_i2c_edma_b2b_transfer_master" name="cmsis_i2c_edma_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/master" type="xml">
             <files mask="cmsis_i2c_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_i2c_edma_b2b_transfer_slave" name="cmsis_i2c_edma_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_i2c_edma_b2b_transfer_slave" name="cmsis_i2c_edma_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/i2c/edma_b2b_transfer/slave" type="xml">
             <files mask="cmsis_i2c_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_i2c_int_b2b_transfer_master" name="cmsis_i2c_int_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/int_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_i2c_int_b2b_transfer_master" name="cmsis_i2c_int_b2b_transfer_master" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/int_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/i2c/int_b2b_transfer/master" type="xml">
             <files mask="cmsis_i2c_int_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_i2c_int_b2b_transfer_slave" name="cmsis_i2c_int_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/int_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_i2c_int_b2b_transfer_slave" name="cmsis_i2c_int_b2b_transfer_slave" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/int_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/i2c/int_b2b_transfer/slave" type="xml">
             <files mask="cmsis_i2c_int_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_i2c_read_accel_value_transfer" name="cmsis_i2c_read_accel_value_transfer" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/read_accel_value_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_i2c_read_accel_value_transfer" name="cmsis_i2c_read_accel_value_transfer" category="cmsis_driver_examples/i2c" path="boards/frdmkv31f/cmsis_driver_examples/i2c/read_accel_value_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/i2c/read_accel_value_transfer" type="xml">
             <files mask="cmsis_i2c_read_accel_value_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_lpuart_edma_transfer" name="cmsis_lpuart_edma_transfer" category="cmsis_driver_examples/lpuart" path="boards/frdmkv31f/cmsis_driver_examples/lpuart/edma_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_lpuart_edma_transfer" name="cmsis_lpuart_edma_transfer" category="cmsis_driver_examples/lpuart" path="boards/frdmkv31f/cmsis_driver_examples/lpuart/edma_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/lpuart/edma_transfer" type="xml">
             <files mask="cmsis_lpuart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_lpuart_interrupt_transfer" name="cmsis_lpuart_interrupt_transfer" category="cmsis_driver_examples/lpuart" path="boards/frdmkv31f/cmsis_driver_examples/lpuart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_lpuart_interrupt_transfer" name="cmsis_lpuart_interrupt_transfer" category="cmsis_driver_examples/lpuart" path="boards/frdmkv31f/cmsis_driver_examples/lpuart/interrupt_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/lpuart/interrupt_transfer" type="xml">
             <files mask="cmsis_lpuart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_uart_edma_transfer" name="cmsis_uart_edma_transfer" category="cmsis_driver_examples/uart" path="boards/frdmkv31f/cmsis_driver_examples/uart/edma_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_uart_edma_transfer" name="cmsis_uart_edma_transfer" category="cmsis_driver_examples/uart" path="boards/frdmkv31f/cmsis_driver_examples/uart/edma_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/uart/edma_transfer" type="xml">
             <files mask="cmsis_uart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmsis_uart_interrupt_transfer" name="cmsis_uart_interrupt_transfer" category="cmsis_driver_examples/uart" path="boards/frdmkv31f/cmsis_driver_examples/uart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmsis_uart_interrupt_transfer" name="cmsis_uart_interrupt_transfer" category="cmsis_driver_examples/uart" path="boards/frdmkv31f/cmsis_driver_examples/uart/interrupt_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/cmsis_driver_examples/uart/interrupt_transfer" type="xml">
             <files mask="cmsis_uart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_adc16_low_power" name="adc16_low_power" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power" toolchain="mcuxpresso">
+        <example id="frdmkv31f_adc16_low_power" name="adc16_low_power" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/adc16_low_power" type="xml">
             <files mask="adc16_low_power.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_adc16_low_power_async_edma" name="adc16_low_power_async_edma" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power_async_edma" toolchain="mcuxpresso">
+        <example id="frdmkv31f_adc16_low_power_async_edma" name="adc16_low_power_async_edma" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power_async_edma" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/adc16_low_power_async_edma" type="xml">
             <files mask="adc16_low_power_async_edma.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_adc16_low_power_peripheral" name="adc16_low_power_peripheral" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power_peripheral" toolchain="mcuxpresso">
+        <example id="frdmkv31f_adc16_low_power_peripheral" name="adc16_low_power_peripheral" category="demo_apps" path="boards/frdmkv31f/demo_apps/adc16_low_power_peripheral" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/adc16_low_power_peripheral" type="xml">
             <files mask="adc16_low_power_peripheral.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_bubble" name="bubble" category="demo_apps" path="boards/frdmkv31f/demo_apps/bubble" toolchain="mcuxpresso">
+        <example id="frdmkv31f_bubble" name="bubble" category="demo_apps" path="boards/frdmkv31f/demo_apps/bubble" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/bubble" type="xml">
             <files mask="bubble.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_bubble_peripheral" name="bubble_peripheral" category="demo_apps" path="boards/frdmkv31f/demo_apps/bubble_peripheral" toolchain="mcuxpresso">
+        <example id="frdmkv31f_bubble_peripheral" name="bubble_peripheral" category="demo_apps" path="boards/frdmkv31f/demo_apps/bubble_peripheral" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/bubble_peripheral" type="xml">
             <files mask="bubble_peripheral.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dac_adc" name="dac_adc" category="demo_apps" path="boards/frdmkv31f/demo_apps/dac_adc" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dac_adc" name="dac_adc" category="demo_apps" path="boards/frdmkv31f/demo_apps/dac_adc" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/dac_adc" type="xml">
             <files mask="dac_adc.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ecompass" name="ecompass" category="demo_apps" path="boards/frdmkv31f/demo_apps/ecompass" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ecompass" name="ecompass" category="demo_apps" path="boards/frdmkv31f/demo_apps/ecompass" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/ecompass" type="xml">
             <files mask="ecompass.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_quad_decoder" name="ftm_quad_decoder" category="demo_apps" path="boards/frdmkv31f/demo_apps/ftm_quad_decoder" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_quad_decoder" name="ftm_quad_decoder" category="demo_apps" path="boards/frdmkv31f/demo_apps/ftm_quad_decoder" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/ftm_quad_decoder" type="xml">
             <files mask="ftm_quad_decoder.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_hello_world" name="hello_world" category="demo_apps" path="boards/frdmkv31f/demo_apps/hello_world" toolchain="mcuxpresso">
+        <example id="frdmkv31f_hello_world" name="hello_world" category="demo_apps" path="boards/frdmkv31f/demo_apps/hello_world" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/hello_world" type="xml">
             <files mask="hello_world.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_led_blinky" name="led_blinky" category="demo_apps" path="boards/frdmkv31f/demo_apps/led_blinky" toolchain="mcuxpresso">
+        <example id="frdmkv31f_led_blinky" name="led_blinky" category="demo_apps" path="boards/frdmkv31f/demo_apps/led_blinky" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/led_blinky" type="xml">
             <files mask="led_blinky.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_power_manager" name="power_manager" category="demo_apps" path="boards/frdmkv31f/demo_apps/power_manager" toolchain="mcuxpresso">
+        <example id="frdmkv31f_power_manager" name="power_manager" category="demo_apps" path="boards/frdmkv31f/demo_apps/power_manager" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/power_manager" type="xml">
             <files mask="power_manager.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_power_mode_switch" name="power_mode_switch" category="demo_apps" path="boards/frdmkv31f/demo_apps/power_mode_switch" toolchain="mcuxpresso">
+        <example id="frdmkv31f_power_mode_switch" name="power_mode_switch" category="demo_apps" path="boards/frdmkv31f/demo_apps/power_mode_switch" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/power_mode_switch" type="xml">
             <files mask="power_mode_switch.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_shell" name="shell" category="demo_apps" path="boards/frdmkv31f/demo_apps/shell" toolchain="mcuxpresso">
+        <example id="frdmkv31f_shell" name="shell" category="demo_apps" path="boards/frdmkv31f/demo_apps/shell" toolchain="iar">
           <external path="boards/frdmkv31f/demo_apps/shell" type="xml">
             <files mask="shell.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_adc16_continuous_edma" name="adc16_continuous_edma" category="driver_examples/adc16" path="boards/frdmkv31f/driver_examples/adc16/continuous_edma" toolchain="mcuxpresso">
+        <example id="frdmkv31f_adc16_continuous_edma" name="adc16_continuous_edma" category="driver_examples/adc16" path="boards/frdmkv31f/driver_examples/adc16/continuous_edma" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/adc16/continuous_edma" type="xml">
             <files mask="adc16_continuous_edma.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_adc16_interrupt" name="adc16_interrupt" category="driver_examples/adc16" path="boards/frdmkv31f/driver_examples/adc16/interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_adc16_interrupt" name="adc16_interrupt" category="driver_examples/adc16" path="boards/frdmkv31f/driver_examples/adc16/interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/adc16/interrupt" type="xml">
             <files mask="adc16_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_adc16_polling" name="adc16_polling" category="driver_examples/adc16" path="boards/frdmkv31f/driver_examples/adc16/polling" toolchain="mcuxpresso">
+        <example id="frdmkv31f_adc16_polling" name="adc16_polling" category="driver_examples/adc16" path="boards/frdmkv31f/driver_examples/adc16/polling" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/adc16/polling" type="xml">
             <files mask="adc16_polling.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmp_interrupt" name="cmp_interrupt" category="driver_examples/cmp" path="boards/frdmkv31f/driver_examples/cmp/interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmp_interrupt" name="cmp_interrupt" category="driver_examples/cmp" path="boards/frdmkv31f/driver_examples/cmp/interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/cmp/interrupt" type="xml">
             <files mask="cmp_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_cmp_polling" name="cmp_polling" category="driver_examples/cmp" path="boards/frdmkv31f/driver_examples/cmp/polling" toolchain="mcuxpresso">
+        <example id="frdmkv31f_cmp_polling" name="cmp_polling" category="driver_examples/cmp" path="boards/frdmkv31f/driver_examples/cmp/polling" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/cmp/polling" type="xml">
             <files mask="cmp_polling.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_crc" name="crc" category="driver_examples" path="boards/frdmkv31f/driver_examples/crc" toolchain="mcuxpresso">
+        <example id="frdmkv31f_crc" name="crc" category="driver_examples" path="boards/frdmkv31f/driver_examples/crc" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/crc" type="xml">
             <files mask="crc.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dac_basic" name="dac_basic" category="driver_examples/dac" path="boards/frdmkv31f/driver_examples/dac/basic" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dac_basic" name="dac_basic" category="driver_examples/dac" path="boards/frdmkv31f/driver_examples/dac/basic" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dac/basic" type="xml">
             <files mask="dac_basic.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dac_buffer_interrupt" name="dac_buffer_interrupt" category="driver_examples/dac" path="boards/frdmkv31f/driver_examples/dac/buffer_interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dac_buffer_interrupt" name="dac_buffer_interrupt" category="driver_examples/dac" path="boards/frdmkv31f/driver_examples/dac/buffer_interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dac/buffer_interrupt" type="xml">
             <files mask="dac_buffer_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dac_continuous_pdb_edma" name="dac_continuous_pdb_edma" category="driver_examples/dac" path="boards/frdmkv31f/driver_examples/dac/continuous_pdb_edma" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dac_continuous_pdb_edma" name="dac_continuous_pdb_edma" category="driver_examples/dac" path="boards/frdmkv31f/driver_examples/dac/continuous_pdb_edma" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dac/continuous_pdb_edma" type="xml">
             <files mask="dac_continuous_pdb_edma.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_edma_b2b_transfer_master" name="dspi_edma_b2b_transfer_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_edma_b2b_transfer_master" name="dspi_edma_b2b_transfer_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/edma_b2b_transfer/master" type="xml">
             <files mask="dspi_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_edma_b2b_transfer_slave" name="dspi_edma_b2b_transfer_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_edma_b2b_transfer_slave" name="dspi_edma_b2b_transfer_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/edma_b2b_transfer/slave" type="xml">
             <files mask="dspi_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_half_duplex_edma_master" name="dspi_half_duplex_edma_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/edma/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_half_duplex_edma_master" name="dspi_half_duplex_edma_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/edma/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/edma/master" type="xml">
             <files mask="dspi_half_duplex_edma_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_half_duplex_edma_slave" name="dspi_half_duplex_edma_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/edma/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_half_duplex_edma_slave" name="dspi_half_duplex_edma_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/edma/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/edma/slave" type="xml">
             <files mask="dspi_half_duplex_edma_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_half_duplex_int_master" name="dspi_half_duplex_int_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/int/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_half_duplex_int_master" name="dspi_half_duplex_int_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/int/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/int/master" type="xml">
             <files mask="dspi_half_duplex_int_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_half_duplex_int_slave" name="dspi_half_duplex_int_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/int/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_half_duplex_int_slave" name="dspi_half_duplex_int_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/int/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/int/slave" type="xml">
             <files mask="dspi_half_duplex_int_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_half_duplex_polling_master" name="dspi_half_duplex_polling_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/polling/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_half_duplex_polling_master" name="dspi_half_duplex_polling_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/polling/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/polling/master" type="xml">
             <files mask="dspi_half_duplex_polling_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_half_duplex_polling_slave" name="dspi_half_duplex_polling_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/polling/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_half_duplex_polling_slave" name="dspi_half_duplex_polling_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/polling/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/half_duplex_transfer/polling/slave" type="xml">
             <files mask="dspi_half_duplex_polling_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_interrupt" name="dspi_interrupt" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_interrupt" name="dspi_interrupt" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/interrupt" type="xml">
             <files mask="dspi_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_interrupt_b2b_master" name="dspi_interrupt_b2b_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_interrupt_b2b_master" name="dspi_interrupt_b2b_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b/master" type="xml">
             <files mask="dspi_interrupt_b2b_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_interrupt_b2b_slave" name="dspi_interrupt_b2b_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_interrupt_b2b_slave" name="dspi_interrupt_b2b_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b/slave" type="xml">
             <files mask="dspi_interrupt_b2b_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_interrupt_b2b_transfer_master" name="dspi_interrupt_b2b_transfer_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_interrupt_b2b_transfer_master" name="dspi_interrupt_b2b_transfer_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b_transfer/master" type="xml">
             <files mask="dspi_interrupt_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_interrupt_b2b_transfer_slave" name="dspi_interrupt_b2b_transfer_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_interrupt_b2b_transfer_slave" name="dspi_interrupt_b2b_transfer_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/interrupt_b2b_transfer/slave" type="xml">
             <files mask="dspi_interrupt_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_polling_b2b_transfer_master" name="dspi_polling_b2b_transfer_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/polling_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_polling_b2b_transfer_master" name="dspi_polling_b2b_transfer_master" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/polling_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/polling_b2b_transfer/master" type="xml">
             <files mask="dspi_polling_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_dspi_polling_b2b_transfer_slave" name="dspi_polling_b2b_transfer_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/polling_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_dspi_polling_b2b_transfer_slave" name="dspi_polling_b2b_transfer_slave" category="driver_examples/dspi" path="boards/frdmkv31f/driver_examples/dspi/polling_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/dspi/polling_b2b_transfer/slave" type="xml">
             <files mask="dspi_polling_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_edma_memory_to_memory" name="edma_memory_to_memory" category="driver_examples/edma" path="boards/frdmkv31f/driver_examples/edma/memory_to_memory" toolchain="mcuxpresso">
+        <example id="frdmkv31f_edma_memory_to_memory" name="edma_memory_to_memory" category="driver_examples/edma" path="boards/frdmkv31f/driver_examples/edma/memory_to_memory" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/edma/memory_to_memory" type="xml">
             <files mask="edma_memory_to_memory.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_edma_scatter_gather" name="edma_scatter_gather" category="driver_examples/edma" path="boards/frdmkv31f/driver_examples/edma/scatter_gather" toolchain="mcuxpresso">
+        <example id="frdmkv31f_edma_scatter_gather" name="edma_scatter_gather" category="driver_examples/edma" path="boards/frdmkv31f/driver_examples/edma/scatter_gather" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/edma/scatter_gather" type="xml">
             <files mask="edma_scatter_gather.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ewm" name="ewm" category="driver_examples" path="boards/frdmkv31f/driver_examples/ewm" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ewm" name="ewm" category="driver_examples" path="boards/frdmkv31f/driver_examples/ewm" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ewm" type="xml">
             <files mask="ewm.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_pflash" name="pflash" category="driver_examples/flash" path="boards/frdmkv31f/driver_examples/flash/pflash" toolchain="mcuxpresso">
+        <example id="frdmkv31f_pflash" name="pflash" category="driver_examples/flash" path="boards/frdmkv31f/driver_examples/flash/pflash" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/flash/pflash" type="xml">
             <files mask="pflash.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_combine_pwm" name="ftm_combine_pwm" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/combine_pwm" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_combine_pwm" name="ftm_combine_pwm" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/combine_pwm" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/combine_pwm" type="xml">
             <files mask="ftm_combine_pwm.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_dual_edge_capture" name="ftm_dual_edge_capture" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/dual_edge_capture" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_dual_edge_capture" name="ftm_dual_edge_capture" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/dual_edge_capture" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/dual_edge_capture" type="xml">
             <files mask="ftm_dual_edge_capture.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_input_capture" name="ftm_input_capture" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/input_capture" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_input_capture" name="ftm_input_capture" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/input_capture" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/input_capture" type="xml">
             <files mask="ftm_input_capture.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_output_compare" name="ftm_output_compare" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/output_compare" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_output_compare" name="ftm_output_compare" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/output_compare" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/output_compare" type="xml">
             <files mask="ftm_output_compare.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_pwm_twochannel" name="ftm_pwm_twochannel" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/pwm_twochannel" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_pwm_twochannel" name="ftm_pwm_twochannel" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/pwm_twochannel" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/pwm_twochannel" type="xml">
             <files mask="ftm_pwm_twochannel.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_simple_pwm" name="ftm_simple_pwm" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/simple_pwm" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_simple_pwm" name="ftm_simple_pwm" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/simple_pwm" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/simple_pwm" type="xml">
             <files mask="ftm_simple_pwm.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_ftm_timer" name="ftm_timer" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/timer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_ftm_timer" name="ftm_timer" category="driver_examples/ftm" path="boards/frdmkv31f/driver_examples/ftm/timer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/ftm/timer" type="xml">
             <files mask="ftm_timer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_gpio_input_interrupt" name="gpio_input_interrupt" category="driver_examples/gpio" path="boards/frdmkv31f/driver_examples/gpio/input_interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_gpio_input_interrupt" name="gpio_input_interrupt" category="driver_examples/gpio" path="boards/frdmkv31f/driver_examples/gpio/input_interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/gpio/input_interrupt" type="xml">
             <files mask="gpio_input_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_gpio_led_output" name="gpio_led_output" category="driver_examples/gpio" path="boards/frdmkv31f/driver_examples/gpio/led_output" toolchain="mcuxpresso">
+        <example id="frdmkv31f_gpio_led_output" name="gpio_led_output" category="driver_examples/gpio" path="boards/frdmkv31f/driver_examples/gpio/led_output" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/gpio/led_output" type="xml">
             <files mask="gpio_led_output.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_edma_b2b_transfer_master" name="i2c_edma_b2b_transfer_master" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/edma_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_edma_b2b_transfer_master" name="i2c_edma_b2b_transfer_master" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/edma_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/edma_b2b_transfer/master" type="xml">
             <files mask="i2c_edma_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_edma_b2b_transfer_slave" name="i2c_edma_b2b_transfer_slave" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/edma_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_edma_b2b_transfer_slave" name="i2c_edma_b2b_transfer_slave" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/edma_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/edma_b2b_transfer/slave" type="xml">
             <files mask="i2c_edma_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_interrupt" name="i2c_interrupt" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_interrupt" name="i2c_interrupt" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/interrupt" type="xml">
             <files mask="i2c_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_interrupt_b2b_transfer_master" name="i2c_interrupt_b2b_transfer_master" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/interrupt_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_interrupt_b2b_transfer_master" name="i2c_interrupt_b2b_transfer_master" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/interrupt_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/interrupt_b2b_transfer/master" type="xml">
             <files mask="i2c_interrupt_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_interrupt_b2b_transfer_slave" name="i2c_interrupt_b2b_transfer_slave" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/interrupt_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_interrupt_b2b_transfer_slave" name="i2c_interrupt_b2b_transfer_slave" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/interrupt_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/interrupt_b2b_transfer/slave" type="xml">
             <files mask="i2c_interrupt_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_polling_b2b_transfer_master" name="i2c_polling_b2b_transfer_master" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/polling_b2b_transfer/master" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_polling_b2b_transfer_master" name="i2c_polling_b2b_transfer_master" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/polling_b2b_transfer/master" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/polling_b2b_transfer/master" type="xml">
             <files mask="i2c_polling_b2b_transfer_master.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_polling_b2b_transfer_slave" name="i2c_polling_b2b_transfer_slave" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/polling_b2b_transfer/slave" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_polling_b2b_transfer_slave" name="i2c_polling_b2b_transfer_slave" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/polling_b2b_transfer/slave" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/polling_b2b_transfer/slave" type="xml">
             <files mask="i2c_polling_b2b_transfer_slave.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_i2c_read_accel_value_transfer" name="i2c_read_accel_value_transfer" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/read_accel_value_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_i2c_read_accel_value_transfer" name="i2c_read_accel_value_transfer" category="driver_examples/i2c" path="boards/frdmkv31f/driver_examples/i2c/read_accel_value_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/i2c/read_accel_value_transfer" type="xml">
             <files mask="i2c_read_accel_value_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_lptmr" name="lptmr" category="driver_examples" path="boards/frdmkv31f/driver_examples/lptmr" toolchain="mcuxpresso">
+        <example id="frdmkv31f_lptmr" name="lptmr" category="driver_examples" path="boards/frdmkv31f/driver_examples/lptmr" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/lptmr" type="xml">
             <files mask="lptmr.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_lpuart_edma_transfer" name="lpuart_edma_transfer" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/edma_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_lpuart_edma_transfer" name="lpuart_edma_transfer" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/edma_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/lpuart/edma_transfer" type="xml">
             <files mask="lpuart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_lpuart_interrupt" name="lpuart_interrupt" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_lpuart_interrupt" name="lpuart_interrupt" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/lpuart/interrupt" type="xml">
             <files mask="lpuart_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_lpuart_interrupt_rb_transfer" name="lpuart_interrupt_rb_transfer" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/interrupt_rb_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_lpuart_interrupt_rb_transfer" name="lpuart_interrupt_rb_transfer" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/interrupt_rb_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/lpuart/interrupt_rb_transfer" type="xml">
             <files mask="lpuart_interrupt_rb_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_lpuart_interrupt_transfer" name="lpuart_interrupt_transfer" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_lpuart_interrupt_transfer" name="lpuart_interrupt_transfer" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/interrupt_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/lpuart/interrupt_transfer" type="xml">
             <files mask="lpuart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_lpuart_polling" name="lpuart_polling" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/polling" toolchain="mcuxpresso">
+        <example id="frdmkv31f_lpuart_polling" name="lpuart_polling" category="driver_examples/lpuart" path="boards/frdmkv31f/driver_examples/lpuart/polling" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/lpuart/polling" type="xml">
             <files mask="lpuart_polling.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_mcg_fee_blpe" name="mcg_fee_blpe" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/fee_blpe" toolchain="mcuxpresso">
+        <example id="frdmkv31f_mcg_fee_blpe" name="mcg_fee_blpe" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/fee_blpe" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/mcg/fee_blpe" type="xml">
             <files mask="mcg_fee_blpe.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_mcg_fee_blpi" name="mcg_fee_blpi" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/fee_blpi" toolchain="mcuxpresso">
+        <example id="frdmkv31f_mcg_fee_blpi" name="mcg_fee_blpi" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/fee_blpi" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/mcg/fee_blpi" type="xml">
             <files mask="mcg_fee_blpi.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_mcg_fei_blpi" name="mcg_fei_blpi" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/fei_blpi" toolchain="mcuxpresso">
+        <example id="frdmkv31f_mcg_fei_blpi" name="mcg_fei_blpi" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/fei_blpi" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/mcg/fei_blpi" type="xml">
             <files mask="mcg_fei_blpi.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_mcg_pee_blpe" name="mcg_pee_blpe" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/pee_blpe" toolchain="mcuxpresso">
+        <example id="frdmkv31f_mcg_pee_blpe" name="mcg_pee_blpe" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/pee_blpe" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/mcg/pee_blpe" type="xml">
             <files mask="mcg_pee_blpe.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_mcg_pee_blpi" name="mcg_pee_blpi" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/pee_blpi" toolchain="mcuxpresso">
+        <example id="frdmkv31f_mcg_pee_blpi" name="mcg_pee_blpi" category="driver_examples/mcg" path="boards/frdmkv31f/driver_examples/mcg/pee_blpi" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/mcg/pee_blpi" type="xml">
             <files mask="mcg_pee_blpi.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_pdb_adc16_trigger" name="pdb_adc16_trigger" category="driver_examples/pdb" path="boards/frdmkv31f/driver_examples/pdb/adc16_trigger" toolchain="mcuxpresso">
+        <example id="frdmkv31f_pdb_adc16_trigger" name="pdb_adc16_trigger" category="driver_examples/pdb" path="boards/frdmkv31f/driver_examples/pdb/adc16_trigger" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/pdb/adc16_trigger" type="xml">
             <files mask="pdb_adc16_trigger.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_pdb_dac_trigger" name="pdb_dac_trigger" category="driver_examples/pdb" path="boards/frdmkv31f/driver_examples/pdb/dac_trigger" toolchain="mcuxpresso">
+        <example id="frdmkv31f_pdb_dac_trigger" name="pdb_dac_trigger" category="driver_examples/pdb" path="boards/frdmkv31f/driver_examples/pdb/dac_trigger" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/pdb/dac_trigger" type="xml">
             <files mask="pdb_dac_trigger.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_pdb_delay_interrupt" name="pdb_delay_interrupt" category="driver_examples/pdb" path="boards/frdmkv31f/driver_examples/pdb/delay_interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_pdb_delay_interrupt" name="pdb_delay_interrupt" category="driver_examples/pdb" path="boards/frdmkv31f/driver_examples/pdb/delay_interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/pdb/delay_interrupt" type="xml">
             <files mask="pdb_delay_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_pit" name="pit" category="driver_examples" path="boards/frdmkv31f/driver_examples/pit" toolchain="mcuxpresso">
+        <example id="frdmkv31f_pit" name="pit" category="driver_examples" path="boards/frdmkv31f/driver_examples/pit" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/pit" type="xml">
             <files mask="pit.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_rnga_random" name="rnga_random" category="driver_examples/rnga" path="boards/frdmkv31f/driver_examples/rnga/random" toolchain="mcuxpresso">
+        <example id="frdmkv31f_rnga_random" name="rnga_random" category="driver_examples/rnga" path="boards/frdmkv31f/driver_examples/rnga/random" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/rnga/random" type="xml">
             <files mask="rnga_random.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_uart_edma_transfer" name="uart_edma_transfer" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/edma_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_uart_edma_transfer" name="uart_edma_transfer" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/edma_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/uart/edma_transfer" type="xml">
             <files mask="uart_edma_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_uart_interrupt" name="uart_interrupt" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/interrupt" toolchain="mcuxpresso">
+        <example id="frdmkv31f_uart_interrupt" name="uart_interrupt" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/interrupt" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/uart/interrupt" type="xml">
             <files mask="uart_interrupt.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_uart_interrupt_rb_transfer" name="uart_interrupt_rb_transfer" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/interrupt_rb_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_uart_interrupt_rb_transfer" name="uart_interrupt_rb_transfer" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/interrupt_rb_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/uart/interrupt_rb_transfer" type="xml">
             <files mask="uart_interrupt_rb_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_uart_interrupt_transfer" name="uart_interrupt_transfer" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/interrupt_transfer" toolchain="mcuxpresso">
+        <example id="frdmkv31f_uart_interrupt_transfer" name="uart_interrupt_transfer" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/interrupt_transfer" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/uart/interrupt_transfer" type="xml">
             <files mask="uart_interrupt_transfer.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_uart_polling" name="uart_polling" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/polling" toolchain="mcuxpresso">
+        <example id="frdmkv31f_uart_polling" name="uart_polling" category="driver_examples/uart" path="boards/frdmkv31f/driver_examples/uart/polling" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/uart/polling" type="xml">
             <files mask="uart_polling.xml"/>
           </external>
         </example>
-        <example id="frdmkv31f_wdog" name="wdog" category="driver_examples" path="boards/frdmkv31f/driver_examples/wdog" toolchain="mcuxpresso">
+        <example id="frdmkv31f_wdog" name="wdog" category="driver_examples" path="boards/frdmkv31f/driver_examples/wdog" toolchain="iar">
           <external path="boards/frdmkv31f/driver_examples/wdog" type="xml">
             <files mask="wdog.xml"/>
           </external>
@@ -1091,22 +1021,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <evaluation_board name="twrkv31f120m"/>
         <evaluation_board name="frdmkv31f"/>
       </evaluation_boards>
-      <debug_configurations>
-        <debug_configuration id_refs="com.crt.advproject.config.exe.debug com.crt.advproject.config.exe.release">
-          <params>
-            <params id="internal.wiretype.release.MKV31F256xxx12" name="internal.wiretype" value="SWD*,JTAG"/>
-            <params id="internal.has_swo.release.MKV31F256xxx12" name="internal.has_swo" value="true"/>
-            <params id="internal.connect.script.debug.mcuxpresso.MKV31F256xxx12" name="internal.connect.script" value="kinetisconnect.scp"/>
-          </params>
-          <drivers>
-            <driver id_refs="PROGRAM_FLASH_MKV31F256xxx12">
-              <driverBinary path="devices/MKV31F25612/mcuxpresso" type="binary">
-                <files mask="FTFA_2K.cfx"/>
-              </driverBinary>
-            </driver>
-          </drivers>
-        </debug_configuration>
-      </debug_configurations>
       <linkerSettings nature="c_nature">
         <linker property="start_symbol" value="ResetISR"/>
         <linker property="text_align" value="4"/>
@@ -1161,22 +1075,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <evaluation_board name="frdmkv31f"/>
         <evaluation_board name="hvpkv31f120m"/>
       </evaluation_boards>
-      <debug_configurations>
-        <debug_configuration id_refs="com.crt.advproject.config.exe.debug com.crt.advproject.config.exe.release">
-          <params>
-            <params id="internal.wiretype.release.MKV31F512xxx12" name="internal.wiretype" value="SWD*,JTAG"/>
-            <params id="internal.has_swo.release.MKV31F512xxx12" name="internal.has_swo" value="true"/>
-            <params id="internal.connect.script.debug.mcuxpresso.MKV31F512xxx12" name="internal.connect.script" value="kinetisconnect.scp"/>
-          </params>
-          <drivers>
-            <driver id_refs="PROGRAM_FLASH_MKV31F512xxx12">
-              <driverBinary path="devices/MKV31F51212/mcuxpresso" type="binary">
-                <files mask="FTFA_2K.cfx"/>
-              </driverBinary>
-            </driver>
-          </drivers>
-        </debug_configuration>
-      </debug_configurations>
       <linkerSettings nature="c_nature">
         <linker property="start_symbol" value="ResetISR"/>
         <linker property="text_align" value="4"/>
@@ -1196,14 +1094,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
     </device>
   </devices>
   <components>
-    <component id="platform.drivers.adc16.MKV31F25612" name="adc" full_name="ADC16 Driver" type="driver" brief="ADC16 Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_adc16.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_adc16.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.adc16.MKV31F51212" name="adc" full_name="ADC16 Driver" type="driver" brief="ADC16 Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_adc16.c"/>
@@ -1212,12 +1102,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_adc16.h"/>
       </source>
     </component>
-    <component id="platform.drivers.clock.MKV31F51212" name="clock" full_name="Clock Driver" type="driver" brief="Clock Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_clock.c"/>
+    <component id="platform.drivers.adc16.MKV31F25612" name="adc" full_name="ADC16 Driver" type="driver" brief="ADC16 Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_adc16.c"/>
       </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_clock.h"/>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_adc16.h"/>
       </source>
     </component>
     <component id="platform.drivers.clock.MKV31F25612" name="clock" full_name="Clock Driver" type="driver" brief="Clock Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
@@ -1225,6 +1115,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_clock.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_clock.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.clock.MKV31F51212" name="clock" full_name="Clock Driver" type="driver" brief="Clock Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_clock.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_clock.h"/>
       </source>
     </component>
@@ -1244,19 +1142,19 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_cmp.h"/>
       </source>
     </component>
-    <component id="platform.drivers.common.MKV31F25612" name="common" full_name="COMMON Driver" type="driver" brief="COMMON Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_common.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_common.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.common.MKV31F51212" name="common" full_name="COMMON Driver" type="driver" brief="COMMON Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_common.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_common.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.common.MKV31F25612" name="common" full_name="COMMON Driver" type="driver" brief="COMMON Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_common.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_common.h"/>
       </source>
     </component>
@@ -1276,14 +1174,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_crc.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dac.MKV31F25612" name="dac" full_name="DAC Driver" type="driver" brief="DAC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_dac.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_dac.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.dac.MKV31F51212" name="dac" full_name="DAC Driver" type="driver" brief="DAC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_dac.c"/>
@@ -1292,12 +1182,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dac.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dmamux.MKV31F51212" name="dmamux" full_name="DMAMUX Driver" type="driver" brief="DMAMUX Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.2" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_dmamux.c"/>
+    <component id="platform.drivers.dac.MKV31F25612" name="dac" full_name="DAC Driver" type="driver" brief="DAC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dac.c"/>
       </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_dmamux.h"/>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dac.h"/>
       </source>
     </component>
     <component id="platform.drivers.dmamux.MKV31F25612" name="dmamux" full_name="DMAMUX Driver" type="driver" brief="DMAMUX Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.2" user_visible="true">
@@ -1308,12 +1198,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dmamux.h"/>
       </source>
     </component>
-    <component id="platform.drivers.dspi.MKV31F25612" name="dspi" full_name="DSPI Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.2.0" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_dspi.c"/>
+    <component id="platform.drivers.dmamux.MKV31F51212" name="dmamux" full_name="DMAMUX Driver" type="driver" brief="DMAMUX Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.2" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dmamux.c"/>
       </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_dspi.h"/>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dmamux.h"/>
       </source>
     </component>
     <component id="platform.drivers.dspi.MKV31F51212" name="dspi" full_name="DSPI Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.2.0" user_visible="true">
@@ -1321,6 +1211,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dspi.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.dspi.MKV31F25612" name="dspi" full_name="DSPI Driver" type="driver" brief="DSPI Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.2.0" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dspi.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_dspi.h"/>
       </source>
     </component>
@@ -1340,14 +1238,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.edma.MKV31F51212" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.2" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_edma.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_edma.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.edma.MKV31F25612" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.2" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_edma.c"/>
@@ -1356,12 +1246,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.ewm.MKV31F25612" name="ewm" full_name="EWM Driver" type="driver" brief="EWM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_ewm.c"/>
+    <component id="platform.drivers.edma.MKV31F51212" name="edma" full_name="EDMA Driver" type="driver" brief="EDMA Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.2" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_edma.c"/>
       </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_ewm.h"/>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_edma.h"/>
       </source>
     </component>
     <component id="platform.drivers.ewm.MKV31F51212" name="ewm" full_name="EWM Driver" type="driver" brief="EWM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
@@ -1369,6 +1259,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_ewm.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_ewm.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.ewm.MKV31F25612" name="ewm" full_name="EWM Driver" type="driver" brief="EWM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_ewm.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_ewm.h"/>
       </source>
     </component>
@@ -1448,14 +1346,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_gpio.h"/>
       </source>
     </component>
-    <component id="platform.drivers.i2c.MKV31F51212" name="i2c" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.5" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_i2c.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_i2c.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.i2c.MKV31F25612" name="i2c" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_i2c.c"/>
@@ -1464,12 +1354,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_i2c.h"/>
       </source>
     </component>
-    <component id="platform.drivers.i2c_edma.MKV31F25612" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.5" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_i2c_edma.c"/>
+    <component id="platform.drivers.i2c.MKV31F51212" name="i2c" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.5" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_i2c.c"/>
       </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_i2c_edma.h"/>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_i2c.h"/>
       </source>
     </component>
     <component id="platform.drivers.i2c_edma.MKV31F51212" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.i2c.MKV31F51212" devices="MKV31F512xxx12" version="2.0.5" user_visible="true">
@@ -1480,12 +1370,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_i2c_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.llwu.MKV31F25612" name="llwu" full_name="LLWU Driver" type="driver" brief="LLWU Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+    <component id="platform.drivers.i2c_edma.MKV31F25612" name="i2c_edma" full_name="I2C Driver" type="driver" brief="I2C Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_llwu.c"/>
+        <files mask="fsl_i2c_edma.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_llwu.h"/>
+        <files mask="fsl_i2c_edma.h"/>
       </source>
     </component>
     <component id="platform.drivers.llwu.MKV31F51212" name="llwu" full_name="LLWU Driver" type="driver" brief="LLWU Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
@@ -1493,6 +1383,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_llwu.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_llwu.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.llwu.MKV31F25612" name="llwu" full_name="LLWU Driver" type="driver" brief="LLWU Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_llwu.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_llwu.h"/>
       </source>
     </component>
@@ -1512,14 +1410,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lptmr.h"/>
       </source>
     </component>
-    <component id="platform.drivers.lpuart.MKV31F25612" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.2.5" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_lpuart.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_lpuart.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.lpuart.MKV31F51212" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.2.5" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_lpuart.c"/>
@@ -1528,12 +1418,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lpuart.h"/>
       </source>
     </component>
-    <component id="platform.drivers.lpuart_edma.MKV31F25612" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.lpuart.MKV31F25612" devices="MKV31F256xxx12" version="2.2.5" user_visible="true">
+    <component id="platform.drivers.lpuart.MKV31F25612" name="lpuart" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.2.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_lpuart_edma.c"/>
+        <files mask="fsl_lpuart.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_lpuart_edma.h"/>
+        <files mask="fsl_lpuart.h"/>
       </source>
     </component>
     <component id="platform.drivers.lpuart_edma.MKV31F51212" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.lpuart.MKV31F51212" devices="MKV31F512xxx12" version="2.2.5" user_visible="true">
@@ -1544,12 +1434,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lpuart_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.pdb.MKV31F25612" name="pdb" full_name="PDB Driver" type="driver" brief="PDB Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+    <component id="platform.drivers.lpuart_edma.MKV31F25612" name="lpuart_edma" full_name="LPUART Driver" type="driver" brief="LPUART Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.lpuart.MKV31F25612" devices="MKV31F256xxx12" version="2.2.5" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_pdb.c"/>
+        <files mask="fsl_lpuart_edma.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_pdb.h"/>
+        <files mask="fsl_lpuart_edma.h"/>
       </source>
     </component>
     <component id="platform.drivers.pdb.MKV31F51212" name="pdb" full_name="PDB Driver" type="driver" brief="PDB Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
@@ -1557,6 +1447,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_pdb.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_pdb.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.pdb.MKV31F25612" name="pdb" full_name="PDB Driver" type="driver" brief="PDB Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_pdb.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_pdb.h"/>
       </source>
     </component>
@@ -1576,19 +1474,19 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_pit.h"/>
       </source>
     </component>
-    <component id="platform.drivers.pmc.MKV31F25612" name="pmc" full_name="PMC Driver" type="driver" brief="PMC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_pmc.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_pmc.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.pmc.MKV31F51212" name="pmc" full_name="PMC Driver" type="driver" brief="PMC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_pmc.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_pmc.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.pmc.MKV31F25612" name="pmc" full_name="PMC Driver" type="driver" brief="PMC Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_pmc.c"/>
+      </source>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_pmc.h"/>
       </source>
     </component>
@@ -1634,14 +1532,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_rnga.h"/>
       </source>
     </component>
-    <component id="platform.drivers.sim.MKV31F51212" name="sim" full_name="SIM Driver" type="driver" brief="SIM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_sim.c"/>
-      </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_sim.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.sim.MKV31F25612" name="sim" full_name="SIM Driver" type="driver" brief="SIM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
         <files mask="fsl_sim.c"/>
@@ -1650,12 +1540,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_sim.h"/>
       </source>
     </component>
-    <component id="platform.drivers.smc.MKV31F51212" name="smc" full_name="SMC Driver" type="driver" brief="SMC Driver" dependency="platform.drivers.flash.MKV31F51212" devices="MKV31F512xxx12" version="2.0.3" user_visible="true">
+    <component id="platform.drivers.sim.MKV31F51212" name="sim" full_name="SIM Driver" type="driver" brief="SIM Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_smc.c"/>
+        <files mask="fsl_sim.c"/>
       </source>
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_smc.h"/>
+        <files mask="fsl_sim.h"/>
       </source>
     </component>
     <component id="platform.drivers.smc.MKV31F25612" name="smc" full_name="SMC Driver" type="driver" brief="SMC Driver" dependency="platform.drivers.flash.MKV31F25612" devices="MKV31F256xxx12" version="2.0.3" user_visible="true">
@@ -1663,6 +1553,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_smc.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_smc.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.smc.MKV31F51212" name="smc" full_name="SMC Driver" type="driver" brief="SMC Driver" dependency="platform.drivers.flash.MKV31F51212" devices="MKV31F512xxx12" version="2.0.3" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_smc.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_smc.h"/>
       </source>
     </component>
@@ -1698,14 +1596,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_uart_edma.h"/>
       </source>
     </component>
-    <component id="platform.drivers.vref.MKV31F25612" name="vref" full_name="VREF Driver" type="driver" brief="VREF Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
-        <files mask="fsl_vref.c"/>
-      </source>
-      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_vref.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.vref.MKV31F51212" name="vref" full_name="VREF Driver" type="driver" brief="VREF Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.1.0" user_visible="true">
       <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
         <files mask="fsl_vref.c"/>
@@ -1714,12 +1604,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_vref.h"/>
       </source>
     </component>
-    <component id="platform.drivers.wdog.MKV31F51212" name="wdog" full_name="WDOG Driver" type="driver" brief="WDOG Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
-        <files mask="fsl_wdog.c"/>
+    <component id="platform.drivers.vref.MKV31F25612" name="vref" full_name="VREF Driver" type="driver" brief="VREF Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.1.0" user_visible="true">
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="src">
+        <files mask="fsl_vref.c"/>
       </source>
-      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_wdog.h"/>
+      <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_vref.h"/>
       </source>
     </component>
     <component id="platform.drivers.wdog.MKV31F25612" name="wdog" full_name="WDOG Driver" type="driver" brief="WDOG Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
@@ -1727,6 +1617,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_wdog.c"/>
       </source>
       <source path="devices/MKV31F25612/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_wdog.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.wdog.MKV31F51212" name="wdog" full_name="WDOG Driver" type="driver" brief="WDOG Driver" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="src">
+        <files mask="fsl_wdog.c"/>
+      </source>
+      <source path="devices/MKV31F51212/drivers" target_path="drivers" type="c_include">
         <files mask="fsl_wdog.h"/>
       </source>
     </component>
@@ -1738,33 +1636,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
     <component id="platform.utilities.assert.MKV31F51212" name="assert" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <source path="devices/MKV31F51212/utilities" target_path="utilities" type="src">
         <files mask="fsl_assert.c"/>
-      </source>
-    </component>
-    <component id="platform.utilities.debug_console.MKV31F51212" name="debug_console" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/utilities/io" target_path="utilities" type="src">
-        <files mask="fsl_io.c"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities/io" target_path="utilities" type="c_include">
-        <files mask="fsl_io.h"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities/log" target_path="utilities" type="src">
-        <files mask="fsl_log.c"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities/log" target_path="utilities" type="c_include">
-        <files mask="fsl_log.h"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities/str" target_path="utilities" type="src">
-        <files mask="fsl_str.c"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities/str" target_path="utilities" type="c_include">
-        <files mask="fsl_str.h"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities" target_path="utilities" type="src">
-        <files mask="fsl_debug_console.c"/>
-      </source>
-      <source path="devices/MKV31F51212/utilities" target_path="utilities" type="c_include">
-        <files mask="fsl_debug_console.h"/>
-        <files mask="fsl_debug_console_conf.h"/>
       </source>
     </component>
     <component id="platform.utilities.debug_console.MKV31F25612" name="debug_console" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
@@ -1790,6 +1661,33 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_debug_console.c"/>
       </source>
       <source path="devices/MKV31F25612/utilities" target_path="utilities" type="c_include">
+        <files mask="fsl_debug_console.h"/>
+        <files mask="fsl_debug_console_conf.h"/>
+      </source>
+    </component>
+    <component id="platform.utilities.debug_console.MKV31F51212" name="debug_console" type="utilities" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/utilities/io" target_path="utilities" type="src">
+        <files mask="fsl_io.c"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities/io" target_path="utilities" type="c_include">
+        <files mask="fsl_io.h"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities/log" target_path="utilities" type="src">
+        <files mask="fsl_log.c"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities/log" target_path="utilities" type="c_include">
+        <files mask="fsl_log.h"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities/str" target_path="utilities" type="src">
+        <files mask="fsl_str.c"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities/str" target_path="utilities" type="c_include">
+        <files mask="fsl_str.h"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities" target_path="utilities" type="src">
+        <files mask="fsl_debug_console.c"/>
+      </source>
+      <source path="devices/MKV31F51212/utilities" target_path="utilities" type="c_include">
         <files mask="fsl_debug_console.h"/>
         <files mask="fsl_debug_console_conf.h"/>
       </source>
@@ -2133,7 +2031,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
       </source>
     </component>
     <component id="middleware.mmcau_cm0p.MKV31F25612" name="mmcau_cm0p" type="middleware" brief="MMCAU library for ARM Cortex M0 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
-      <source path="middleware/mmcau/asm-cm0p" target_path="libs" type="lib" toolchain="mcuxpresso">
+      <source path="middleware/mmcau/asm-cm0p" target_path="libs" type="lib" toolchain="iar">
         <files mask="lib_mmcau-cm0p.a"/>
       </source>
       <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
@@ -2145,7 +2043,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
       </source>
     </component>
     <component id="middleware.mmcau_cm0p.MKV31F51212" name="mmcau_cm0p" type="middleware" brief="MMCAU library for ARM Cortex M0 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
-      <source path="middleware/mmcau/asm-cm0p" target_path="libs" type="lib" toolchain="mcuxpresso">
+      <source path="middleware/mmcau/asm-cm0p" target_path="libs" type="lib" toolchain="iar">
         <files mask="lib_mmcau-cm0p.a"/>
       </source>
       <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
@@ -2157,7 +2055,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
       </source>
     </component>
     <component id="middleware.mmcau_cm4_cm7.MKV31F25612" name="mmcau_cm4_cm7" type="middleware" brief="MMCAU library for ARM Cortex M4/M7 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
-      <source path="middleware/mmcau/asm-cm4-cm7" target_path="libs" type="lib" toolchain="mcuxpresso">
+      <source path="middleware/mmcau/asm-cm4-cm7" target_path="libs" type="lib" toolchain="iar">
         <files mask="lib_mmcau.a"/>
       </source>
       <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
@@ -2169,7 +2067,7 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
       </source>
     </component>
     <component id="middleware.mmcau_cm4_cm7.MKV31F51212" name="mmcau_cm4_cm7" type="middleware" brief="MMCAU library for ARM Cortex M4/M7 core" category="Security/MMCAU library" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.lpuart.MKV31F51212 platform.drivers.uart.MKV31F51212 platform.utilities.debug_console.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
-      <source path="middleware/mmcau/asm-cm4-cm7" target_path="libs" type="lib" toolchain="mcuxpresso">
+      <source path="middleware/mmcau/asm-cm4-cm7" target_path="libs" type="lib" toolchain="iar">
         <files mask="lib_mmcau.a"/>
       </source>
       <source path="middleware/mmcau" target_path="mmcau/mmcau_source" type="src">
@@ -2396,14 +2294,6 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_dspi_cmsis.h"/>
       </source>
     </component>
-    <component id="platform.drivers.i2c_cmsis.MKV31F51212" name="i2c_cmsis" type="CMSIS_driver" brief="I2C CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.i2c.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
-      <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="src">
-        <files mask="fsl_i2c_cmsis.c"/>
-      </source>
-      <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_i2c_cmsis.h"/>
-      </source>
-    </component>
     <component id="platform.drivers.i2c_cmsis.MKV31F25612" name="i2c_cmsis" type="CMSIS_driver" brief="I2C CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.i2c.MKV31F25612" devices="MKV31F256xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="src">
         <files mask="fsl_i2c_cmsis.c"/>
@@ -2412,12 +2302,12 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_i2c_cmsis.h"/>
       </source>
     </component>
-    <component id="platform.drivers.lpuart_cmsis.MKV31F51212" name="lpuart_cmsis" type="CMSIS_driver" brief="LPUART CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.lpuart.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
+    <component id="platform.drivers.i2c_cmsis.MKV31F51212" name="i2c_cmsis" type="CMSIS_driver" brief="I2C CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.I2C_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.i2c.MKV31F51212" devices="MKV31F512xxx12" version="2.0.1" user_visible="true">
       <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="src">
-        <files mask="fsl_lpuart_cmsis.c"/>
+        <files mask="fsl_i2c_cmsis.c"/>
       </source>
       <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="c_include">
-        <files mask="fsl_lpuart_cmsis.h"/>
+        <files mask="fsl_i2c_cmsis.h"/>
       </source>
     </component>
     <component id="platform.drivers.lpuart_cmsis.MKV31F25612" name="lpuart_cmsis" type="CMSIS_driver" brief="LPUART CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F25612 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F25612 platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F25612 platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.dmamux.MKV31F25612 platform.drivers.edma.MKV31F25612 platform.drivers.lpuart.MKV31F25612" devices="MKV31F256xxx12" version="2.0.0" user_visible="true">
@@ -2425,6 +2315,14 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="fsl_lpuart_cmsis.c"/>
       </source>
       <source path="devices/MKV31F25612/cmsis_drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_lpuart_cmsis.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpuart_cmsis.MKV31F51212" name="lpuart_cmsis" type="CMSIS_driver" brief="LPUART CMSIS Driver" category="Device/SDK CMSIS Drivers" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="RTE_Device.MKV31F51212 platform.CMSIS_Driver_Include.Common_CMSISInclude.MKV31F51212 platform.CMSIS_Driver_Include.USART_CMSISInclude.MKV31F51212 platform.Include_common.MKV31F51212 platform.Include_core_cm4.MKV31F51212 platform.devices.MKV31F51212_CMSIS.MKV31F51212 platform.drivers.clock.MKV31F51212 platform.drivers.common.MKV31F51212 platform.drivers.dmamux.MKV31F51212 platform.drivers.edma.MKV31F51212 platform.drivers.lpuart.MKV31F51212" devices="MKV31F512xxx12" version="2.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="src">
+        <files mask="fsl_lpuart_cmsis.c"/>
+      </source>
+      <source path="devices/MKV31F51212/cmsis_drivers" target_path="drivers" type="c_include">
         <files mask="fsl_lpuart_cmsis.h"/>
       </source>
     </component>
@@ -2638,20 +2536,26 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="core_cm4.h"/>
       </source>
     </component>
-    <component id="platform.devices.MKV31F25612_startup.MKV31F25612" name="MKV31F25612_startup" type="startup" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/mcuxpresso" type="src_cpp" toolchain="mcuxpresso">
-        <files mask="startup_mkv31f25612.cpp"/>
+    <component id="platform.devices.MKV31F25612_linker.MKV31F25612" name="MKV31F25612_linker" type="linker" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/iar" type="linker" toolchain="iar">
+        <files mask="MKV31F256xxx12_flash.icf"/>
+        <files mask="MKV31F256xxx12_ram.icf"/>
       </source>
-      <source path="devices/MKV31F25612/mcuxpresso" type="src_c" toolchain="mcuxpresso">
-        <files mask="startup_mkv31f25612.c"/>
+    </component>
+    <component id="platform.devices.MKV31F25612_startup.MKV31F25612" name="MKV31F25612_startup" type="startup" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F25612/iar" type="asm_include" toolchain="iar">
+        <files mask="startup_MKV31F25612.s"/>
+      </source>
+    </component>
+    <component id="platform.devices.MKV31F51212_linker.MKV31F51212" name="MKV31F51212_linker" type="linker" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
+      <source path="devices/MKV31F51212/iar" type="linker" toolchain="iar">
+        <files mask="MKV31F512xxx12_flash.icf"/>
+        <files mask="MKV31F512xxx12_ram.icf"/>
       </source>
     </component>
     <component id="platform.devices.MKV31F51212_startup.MKV31F51212" name="MKV31F51212_startup" type="startup" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/mcuxpresso" type="src_cpp" toolchain="mcuxpresso">
-        <files mask="startup_mkv31f51212.cpp"/>
-      </source>
-      <source path="devices/MKV31F51212/mcuxpresso" type="src_c" toolchain="mcuxpresso">
-        <files mask="startup_mkv31f51212.c"/>
+      <source path="devices/MKV31F51212/iar" type="asm_include" toolchain="iar">
+        <files mask="startup_MKV31F51212.s"/>
       </source>
     </component>
     <component id="RTE_Device.MKV31F25612" name="RTE_Device" type="project_template" category="Device/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.edma.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
@@ -2669,19 +2573,9 @@ The KV3x is the first device in the Kinetis V portfolio to be enabled with Kinet
         <files mask="MKV31F25612.xml"/>
       </source>
     </component>
-    <component id="platform.devices.MKV31F25612_flash.MKV31F25612" name="MKV31F25612_flash" type="debugger" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F25612/mcuxpresso" type="binary" toolchain="mcuxpresso">
-        <files mask="FTFA_2K.cfx"/>
-      </source>
-    </component>
     <component id="platform.devices.MKV31F51212_debugger.MKV31F51212" name="MKV31F51212_debugger" type="debugger" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
       <source path="devices/MKV31F51212" type="xml">
         <files mask="MKV31F51212.xml"/>
-      </source>
-    </component>
-    <component id="platform.devices.MKV31F51212_flash.MKV31F51212" name="MKV31F51212_flash" type="debugger" devices="MKV31F512xxx12" version="1.0.0" user_visible="true">
-      <source path="devices/MKV31F51212/mcuxpresso" type="binary" toolchain="mcuxpresso">
-        <files mask="FTFA_2K.cfx"/>
       </source>
     </component>
     <component id="project_template.MKV31F25612.MKV31F25612" name="MKV31F25612" type="project_template" category="Board Support/SDK Project Template" device_cores="core0_MKV31F256xxx12 core0_MKV31F512xxx12" core="cm4" dependency="platform.Include_common.MKV31F25612 platform.Include_core_cm4.MKV31F25612 platform.devices.MKV31F25612_CMSIS.MKV31F25612 platform.devices.MKV31F25612_startup.MKV31F25612 platform.drivers.clock.MKV31F25612 platform.drivers.common.MKV31F25612 platform.drivers.flash.MKV31F25612 platform.drivers.gpio.MKV31F25612 platform.drivers.lpuart.MKV31F25612 platform.drivers.port.MKV31F25612 platform.drivers.smc.MKV31F25612 platform.drivers.uart.MKV31F25612 platform.utilities.debug_console.MKV31F25612" devices="MKV31F256xxx12" version="1.0.0" user_visible="true">
